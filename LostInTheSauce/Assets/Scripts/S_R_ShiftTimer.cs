@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SimpleTimer : MonoBehaviour
 {
-    [SerializeField] [Tooltip("The time you've got left on your shift")]private float ShiftTime = 60.0f;
-    [SerializeField]private TMP_Text timerText; // Drag your TimerText object here in Inspector
+    [SerializeField] [Tooltip("The Duration of the game")]private float ShiftTime = 60.0f;
+    [SerializeField]private TMP_Text timerText; 
 
     private bool timerEndedFlag = false;
 
@@ -15,7 +15,7 @@ public class SimpleTimer : MonoBehaviour
         if (timerEndedFlag) return;
 
         ShiftTime -= Time.deltaTime;
-        ShiftTime = Mathf.Max(ShiftTime, 0); // Prevent negative time
+        ShiftTime = Mathf.Max(ShiftTime, 0); // Prevents negative time
 
         // Format time as MM:SS
         int minutes = Mathf.FloorToInt(ShiftTime / 60f);
@@ -31,9 +31,7 @@ public class SimpleTimer : MonoBehaviour
 
     void TimerEnded()
     {
-        // Show Game Over screen here
-        // For now, just log
         Debug.Log("Game Over!");
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("GameOverScene"); //loads the GameOver scene
     }
 }
