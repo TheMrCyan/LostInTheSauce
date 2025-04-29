@@ -32,6 +32,6 @@ public class SimpleTimer : MonoBehaviour
     void TimerEnded()
     {
         Debug.Log("Game Over!");
-        SceneManager.LoadScene("GameOverScene"); //loads the GameOver scene
+        SceneManager.LoadScene("EndOfTheDay"); //loads the GameOver scene
     }
 }
