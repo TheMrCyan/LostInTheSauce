@@ -25,7 +25,7 @@ public class S_T_PlayerSprint : MonoBehaviour
         }
 
         // Stamina replenishes while not sprinting
-        if (stamina < 100 && !S_T_PlayerVariables.isWalking)
+        if (stamina < 100 && !Input.GetKey(KeyCode.LeftShift))
         {
             stamina += 0.1f;
         }
