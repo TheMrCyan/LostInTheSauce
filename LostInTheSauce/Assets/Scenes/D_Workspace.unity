@@ -266,9 +266,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e12913eaa05a2142b12f8bb8348ba00, type: 3}
+  m_Script: {fileID: 11500000, guid: 69cf71c854dbd314d9b85140d8f83643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1557181120}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +369,7 @@ GameObject:
   - component: {fileID: 1557181118}
   - component: {fileID: 1557181117}
   - component: {fileID: 1557181116}
+  - component: {fileID: 1557181121}
   m_Layer: 0
   m_Name: PlayerReal
   m_TagString: Untagged
@@ -522,12 +526,25 @@ Transform:
   m_GameObject: {fileID: 1557181115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.884, y: 12.116, z: 0}
+  m_LocalPosition: {x: 20, y: 12, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1557181121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557181115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf097b8ff2448b4094cc863d3a01e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &1705081488
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,9 +591,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorPrefab: {fileID: 3234451645616199843, guid: 0cac90e31719c104c925ef8c3ad9f2a9, type: 3}
   wallPrefab: {fileID: 1902331495201696448, guid: 21b2294f8c9a2a341bcaa9b9ffb39f6f, type: 3}
-  width: 20
-  height: 12
-  kitchenSize: 4
+  width: 40
+  height: 24
+  kitchenSize: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
