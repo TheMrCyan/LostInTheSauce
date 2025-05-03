@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class S_T_PlayerMovement : MonoBehaviour
 {
+    public static S_T_PlayerMovement Instance { get; private set; }
+
     private bool isMoving;
     private float speed;
     private float stamina;
@@ -13,6 +15,7 @@ public class S_T_PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
         stamina = totalStamina;
     }
 
@@ -31,14 +34,14 @@ public class S_T_PlayerMovement : MonoBehaviour
 
         if (isMoving)
         {
-            speed = 4f;
+            speed = 6f;
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 // Sprinting
                 if (stamina > 0f)
                 {
                     stamina -= 0.2f;
-                    speed = 9f;
+                    speed = 12f;
                 }
             }
             else

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Obstacle
     uniqueID: 1185512285
+    locked: 0
+  - name: Item
+    uniqueID: 3288855665
     locked: 0
   - name: Player
     uniqueID: 2240757157

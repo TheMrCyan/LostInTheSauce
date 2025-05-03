@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class S_T_MazeGenerator : MonoBehaviour
 {
+    public static S_T_MazeGenerator Instance { get; private set; }
+
     public GameObject floorPrefab;
     public GameObject wallPrefab;
     public Transform player;
@@ -10,11 +12,18 @@ public class S_T_MazeGenerator : MonoBehaviour
     public int height = 24;
     public int kitchenSize = 6;
     public float scale = 1;
+    public List<Vector2> validItemSpaces;
 
     private bool[,] maze;  // true = path, false = wall
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
+        validItemSpaces = new List<Vector2>();
         player.position = new Vector3(scale * (width / 2), scale * (height / 2), 0);
 
         floorPrefab.gameObject.transform.localScale = new Vector3(scale, scale, 1);
@@ -40,6 +49,7 @@ public class S_T_MazeGenerator : MonoBehaviour
                 else if (maze[x, y])
                 {
                     Instantiate(floorPrefab, new Vector3(x * scale, y * scale, 0), Quaternion.identity, transform);
+                    validItemSpaces.Add(new Vector2(x,y));
                 }
                 else
                 {
