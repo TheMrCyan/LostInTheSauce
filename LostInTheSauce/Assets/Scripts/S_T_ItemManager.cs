@@ -4,7 +4,8 @@ using UnityEngine.UIElements;
 public enum Food
 {
     Tomato = 0,
-    Meat = 1
+    Meat = 1,
+    Dough = 2
 }
 
 public class S_T_ItemManager : MonoBehaviour
@@ -29,9 +30,5 @@ public class S_T_ItemManager : MonoBehaviour
             ing.id = i;
         }
         newID = ingredientsToSpawn;
-    }
-    void Update()
-    {
-        
     }
 }

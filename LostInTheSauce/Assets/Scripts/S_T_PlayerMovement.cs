@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class S_T_PlayerMovement : MonoBehaviour
     private Vector2 input;
     private Rigidbody2D rb;
     public GameObject staminaBar;
+    public SpriteRenderer heldItem;
 
     void Awake()
     {

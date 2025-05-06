@@ -18,10 +18,15 @@ public class S_T_ItemGen : MonoBehaviour
             RandomizeLocation();
         }
 
-        if (touchingPlayer && Input.GetKey(KeyCode.Space))
+        if (touchingPlayer && Input.GetKey(KeyCode.Space) && S_T_PlayerMovement.Instance.heldItem.sprite == null)
         {
+            // Update ID to not override other spawned pickups
             id = S_T_ItemManager.Instance.newID;
             S_T_ItemManager.Instance.newID += 1;
+
+            // Hold pickup above player
+            S_T_PlayerMovement.Instance.heldItem.sprite = visuals.sprite;
+
             RandomizeLocation();
         }
     }
@@ -31,7 +36,7 @@ public class S_T_ItemGen : MonoBehaviour
         visuals.sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, S_T_ItemManager.Instance.ingredients.Length)];
         transform.position = S_T_MazeGenerator.Instance.validItemSpaces[Random.Range(0, S_T_MazeGenerator.Instance.validItemSpaces.Count)] * S_T_MazeGenerator.Instance.scale;
         // Only spawn outside of player view
-        if (Vector2.Distance(transform.position, S_T_PlayerMovement.Instance.transform.position) < 22)
+        if (Vector2.Distance(transform.position, S_T_PlayerMovement.Instance.transform.position) < 22f)
         {
             RandomizeLocation();
         }
