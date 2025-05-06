@@ -40,6 +40,6 @@ public class S_R_NextDay : MonoBehaviour
 
     public void GiveUp()
     {
-        SceneManager.LoadScene("EndOfTheDay");
+        SceneManager.LoadScene("GameOverScene");
     }
 }
