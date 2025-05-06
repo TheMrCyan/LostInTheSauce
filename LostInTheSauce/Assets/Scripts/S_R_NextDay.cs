@@ -4,14 +4,41 @@ using UnityEngine.SceneManagement;
 public class S_R_NextDay : MonoBehaviour
 {
 
+    [SerializeField][Tooltip("This number is the day you're currently on")] private int m_DayCount = 1;
 
 
-private void NextLevel()
+    public void NextLevel()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex);
+        switch (m_DayCount)
+        {
+            case 1:
+                ++m_DayCount;
+
+                break;
+            case 2:
+                ++m_DayCount;
+
+
+                break;
+            case 3:
+                ++m_DayCount;
+
+
+                break;
+            case 4:
+                ++m_DayCount;
+
+
+                break;
+            case 5:
+                ++m_DayCount;
+
+                break;
+        }
     }
-    private void GiveUp()
+
+
+    public void GiveUp()
     {
         SceneManager.LoadScene("EndOfTheDay");
     }
