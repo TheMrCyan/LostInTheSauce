@@ -4,25 +4,36 @@ using UnityEngine.SceneManagement;
 
 public class S_R_MainMenuButtonFunctions : MonoBehaviour
 {
-   public void PlayButton()
+    [SerializeField] GameObject m_camera;
+    int m_moveDistance = 50;
+    public void PlayButton()
     {
         SceneManager.LoadScene("Day1");
     }
     public void InstructionsButton()
     {
-        SceneManager.LoadScene("Instructions");
+        m_camera.transform.position += new Vector3(m_moveDistance, 0, 0);
     }
     public void OptionButton()
     {
-        SceneManager.LoadScene("Options");
+        m_camera.transform.position += new Vector3(0, m_moveDistance, 0);
     }
     public void CreditsButton()
     {
-        SceneManager.LoadScene("Credits");
+        m_camera.transform.position -= new Vector3(m_moveDistance, 0, 0);
     }
     public void QuitButton()
     {
         Application.Quit();
+    }
+    public void BackButton()
+    {
+        m_camera.transform.position = new Vector3(0, 0, -10);
+    }
+    public void BackButtonInstruction()
+    {
+        m_camera.transform.position -= new Vector3(m_moveDistance, 0, 0);
+
     }
 
 }
