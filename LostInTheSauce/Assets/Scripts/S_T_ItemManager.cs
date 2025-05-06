@@ -17,7 +17,8 @@ public enum Food
     Milk = 11,
     Oil = 12,
     Flour = 13,
-    Cocoa = 14
+    Cocoa = 14,
+    Garlic = 15
 }
 
 public class S_T_ItemManager : MonoBehaviour
