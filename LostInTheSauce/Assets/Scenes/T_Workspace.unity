@@ -795,11 +795,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredient: {fileID: 5633932793778414382, guid: 7ef818f27e86d6c4db6199651dc7905d, type: 3}
-  ingredientsToSpawn: 10
+  ingredientsToSpawn: 50
   ingredients:
   - {fileID: 1014935394985381460, guid: 9ad0541e606bbf941a94357607b86095, type: 3}
   - {fileID: 6234230797252083378, guid: 6d0f303f349c63046a5fa0360a6a3f6c, type: 3}
   - {fileID: 8362935752562957185, guid: 6d42e8be363533946959ce9e052ff5de, type: 3}
+  - {fileID: -2960894188117887773, guid: 95de301365ef8164e8a091c495ce09fc, type: 3}
+  - {fileID: -5455813729198701056, guid: 530f8ecaaa7931240b77f5a3d6c671c9, type: 3}
+  - {fileID: -5761526868329517941, guid: fa53829d111d3b14f81099b20d7e8629, type: 3}
+  - {fileID: 4878994200698858949, guid: 0f3b4b12608929d47a4aa12320cef16b, type: 3}
+  - {fileID: -3257665946655617271, guid: 138bf1e12c5b22542aba423530a4ab4c, type: 3}
+  - {fileID: -2307211836190750150, guid: 775f881826508344eacd8bab700da9d8, type: 3}
+  - {fileID: -5239369220844243736, guid: c47c05b94370334448774ccdbbf68111, type: 3}
+  - {fileID: -675944041728567503, guid: 26d1997b964e75a4ba9256c699fbd77a, type: 3}
+  - {fileID: 575700836448321183, guid: a2aa54bcb6c1be4499f62c9ed7d369d3, type: 3}
+  - {fileID: -4902172950862851429, guid: e1c467bc59b40424f82df71b26919c4a, type: 3}
+  - {fileID: -4664489100571960898, guid: d930ae01a45e7c24d9ddbe1696efb099, type: 3}
+  - {fileID: 4100263627039994691, guid: dcb8f5b06b7a2b341a112a00134910bb, type: 3}
 --- !u!1 &2077658625
 GameObject:
   m_ObjectHideFlags: 0
