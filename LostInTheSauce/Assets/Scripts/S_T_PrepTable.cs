@@ -23,7 +23,7 @@ public class S_T_PrepTable : MonoBehaviour
             for (int i = 0; i < burgerRecipe.Length; i++)
             {
                 foundIngredient = false;
-                for (int j = 0; j < S_T_Fridge.Instance.fridgeContents.Count; j++)
+                for (int j = 0; j < S_T_Fridge.Instance.fridgeContents.Length; j++)
                 {
                     if (burgerRecipe[i] == S_T_Fridge.Instance.fridgeContents[j])
                     {
