@@ -15,6 +15,7 @@ public class S_T_ItemGen : MonoBehaviour
     {
         if (transform.position == Vector3.zero && S_T_MazeGenerator.Instance.validItemSpaces != null)
         {
+            // Initial spawn spot if placed in the world manually
             RandomizeLocation();
         }
 
@@ -57,6 +58,18 @@ public class S_T_ItemGen : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             touchingPlayer = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            var ing = collision.gameObject.GetComponent<S_T_ItemGen>();
+            if (id > ing.id)
+            {
+                RandomizeLocation();
+            }
         }
     }
 
