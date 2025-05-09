@@ -122,10 +122,10 @@ TextureImporter:
       name: SM_T_Cocoa_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 41
-        width: 20
-        height: 32
+        x: 6
+        y: 23
+        width: 83
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: SM_T_Cocoa_1
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 39
-        width: 33
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c2d15906e1470b950800000000000000
-      internalID: 6462793139094887724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SM_T_Cocoa_2
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 37
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: adc0283e96e4f1a10800000000000000
-      internalID: 1882309385959640282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5ab0516fc0d7d824d8ac5cb810b22d74
     internalID: 0
     vertices: []
     indices: 
