@@ -6,10 +6,10 @@ public class S_T_Fridge : MonoBehaviour
 {
     public static S_T_Fridge Instance { get; private set; }
 
-    private bool touchingPlayer;
-    public GameObject fridgeUI;
+    [System.NonSerialized] public bool touchingPlayer;
     [System.NonSerialized] public int[] fridgeContents;
     [System.NonSerialized] public List<Image> fridgeVisuals;
+    public GameObject fridgeUI;
 
     private void Awake()
     {
@@ -19,15 +19,18 @@ public class S_T_Fridge : MonoBehaviour
         // Get all buttons inside FridgeUI
         Button[] buttons = fridgeUI.GetComponentsInChildren<Button>(true);
 
-        foreach (Button button in buttons)
+        for (int i = 0; i < buttons.Length; i++)
         {
+            int buttonId = i;
+            buttons[i].onClick.AddListener(() => OnButtonClick(buttonId)); 
+
             // Get every image in children of every button
-            Image[] images = button.GetComponentsInChildren<Image>(true);
+            Image[] images = buttons[i].GetComponentsInChildren<Image>(true);
 
             foreach (Image img in images)
             {
                 // Skip the background button image
-                if (img == button.image)
+                if (img == buttons[i].image)
                     continue;
 
                 fridgeVisuals.Add(img);
@@ -51,7 +54,7 @@ public class S_T_Fridge : MonoBehaviour
             fridgeUI.SetActive(!fridgeUI.activeSelf);
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -61,7 +64,6 @@ public class S_T_Fridge : MonoBehaviour
             // Store held item
             if (S_T_PlayerMovement.Instance.heldItem.sprite != null)
             {
-
                 var id = 0;
                 // Return ingredients id
                 for (int i = 0; i < S_T_ItemManager.Instance.ingredients.Length; i++)
@@ -93,7 +95,22 @@ public class S_T_Fridge : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             touchingPlayer = false;
+            if (fridgeUI != null)
+            {
+                fridgeUI.SetActive(false);
+            }
+        }
+    }
+
+    void OnButtonClick(int id)
+    {
+        // Check what's in the fridge
+        if (fridgeVisuals[id].sprite != null)
+        {
             fridgeUI.SetActive(false);
+            fridgeContents[id] = -1;
+            S_T_PlayerMovement.Instance.heldItem.sprite = fridgeVisuals[id].sprite;
+            fridgeVisuals[id].sprite = null;
         }
     }
 }

@@ -66,8 +66,8 @@ public class S_T_PlayerMovement : MonoBehaviour
             staminaBar.transform.localScale = new Vector2(stamina / totalStamina, staminaBar.transform.localScale.y);
         }
 
-        // Drop held item 
-        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null)
+        // Drop held item unless at the fridge 
+        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer)
         {
             heldItem.sprite = null;
         }
