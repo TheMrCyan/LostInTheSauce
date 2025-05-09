@@ -3,6 +3,7 @@ using UnityEngine;
 public class S_T_ItemGen : MonoBehaviour
 {
     private bool touchingPlayer;
+    private int lastRawIngredient = 14;
     public int id;
     public SpriteRenderer[] visuals;
 
@@ -34,7 +35,7 @@ public class S_T_ItemGen : MonoBehaviour
 
     private void RandomizeLocation()
     {
-        visuals[0].sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, S_T_ItemManager.Instance.ingredients.Length)];
+        visuals[0].sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, lastRawIngredient + 1)];
         visuals[1].sprite = visuals[0].sprite;
         transform.position = S_T_MazeGenerator.Instance.validItemSpaces[Random.Range(0, S_T_MazeGenerator.Instance.validItemSpaces.Count)] * S_T_MazeGenerator.Instance.scale;
         // Only spawn outside of player view

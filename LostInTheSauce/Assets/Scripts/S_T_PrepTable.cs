@@ -24,10 +24,10 @@ public class S_T_PrepTable : MonoBehaviour
     {
         recipeBook = new List<Recipe>();
         recipeBook.Add(new Recipe("Pizza", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Meat, (int)Food.Cheese }));
-        recipeBook.Add(new Recipe("Burger", new int[] { (int)Food.Dough, (int)Food.Meat, (int)Food.Tomato, (int)Food.Lettuce, (int)Food.Cheese }));
+        recipeBook.Add(new Recipe("Burger", new int[] { (int)Food.Bread, (int)Food.CookedMeat, (int)Food.Tomato, (int)Food.Lettuce, (int)Food.Cheese }));
         recipeBook.Add(new Recipe("Sushi", new int[] { (int)Food.Fish, (int)Food.Rice }));
-        recipeBook.Add(new Recipe("Cookies", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Cocoa }));
-        recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Dough, (int)Food.Garlic, (int)Food.Meat, (int)Food.Lettuce }));
+        recipeBook.Add(new Recipe("Cookies", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Chocolate }));
+        recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.CookedMeat, (int)Food.Lettuce }));
         recipeBook.Add(new Recipe("Fries", new int[] { (int)Food.Potato, (int)Food.Oil }));
 
         // Prepare first recipe
