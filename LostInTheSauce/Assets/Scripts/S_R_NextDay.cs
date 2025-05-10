@@ -3,40 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class S_R_NextDay : MonoBehaviour
 {
+    [SerializeField, Tooltip("Total number of days/scenes")]
+    private int m_TotalDays = 5;
 
-    [SerializeField][Tooltip("This number is the day you're currently on")] private int m_DayCount = 1;
-
+    public static int m_DayCount = 2; // Static, persists between scenes
 
     public void NextLevel()
     {
-        switch (m_DayCount)
+        if (m_DayCount <= m_TotalDays)
         {
-            case 1:
-                ++m_DayCount;
-
-                break;
-            case 2:
-                ++m_DayCount;
-
-
-                break;
-            case 3:
-                ++m_DayCount;
-
-
-                break;
-            case 4:
-                ++m_DayCount;
-
-
-                break;
-            case 5:
-                ++m_DayCount;
-
-                break;
+            string sceneName = "Day" + m_DayCount;
+            SceneManager.LoadScene(sceneName);
+            m_DayCount++;
+        }
+        else
+        {
+            SceneManager.LoadScene("VictoryScene");
         }
     }
-
 
     public void GiveUp()
     {

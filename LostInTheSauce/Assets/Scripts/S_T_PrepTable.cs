@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class S_T_PrepTable : MonoBehaviour
@@ -14,6 +15,11 @@ public class S_T_PrepTable : MonoBehaviour
     public TextMeshProUGUI recipeTitle;
     public List<Image> recipeBookIngredients;
     public List<int> ingredientsToRemove;
+
+
+    [SerializeField, Tooltip("Amount of recipe's the player needs to make")] private int m_NumberOfRecipes;
+    [SerializeField, Tooltip("Amount of recipe's the player needs to make")] private int m_FinishedRecipes = 0;
+
 
     private void Awake()
     {
@@ -139,11 +145,29 @@ public class S_T_PrepTable : MonoBehaviour
             }
             // Close menu
             prepTableUI.SetActive(false);
+
+            //code under this will send you to "EndOfTheDay" once all recipe's are made
+            CompletedRecipe();
+            CompletionChecker();
         }
         else
         {
             Debug.Log("Failed to make " + recipeBook[recipeToShow].title + "!");
         }
+
+       
+        
+    }
+    public void CompletionChecker()
+    {
+        if (m_FinishedRecipes == m_NumberOfRecipes)
+        {
+            SceneManager.LoadScene("EndOfTheDay");
+        }
+    }
+    public void CompletedRecipe()
+    {
+        ++m_FinishedRecipes;
     }
 }
 

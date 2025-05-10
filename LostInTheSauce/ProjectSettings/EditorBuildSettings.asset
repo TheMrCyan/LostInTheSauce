@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/R_HomeScreen.unity
+    path: Assets/Scenes/Game/R_HomeScreen.unity
     guid: 1cd500a59b361cf4897f3b0bb97b42ae
   - enabled: 1
-    path: Assets/Scenes/GameOverScene.unity
+    path: Assets/Scenes/Game/GameOverScene.unity
     guid: 2274da21ad30abb498d4625af64476d4
   - enabled: 1
     path: Assets/Scenes/R_Workspace.unity
     guid: 6a021e983d48c8349952a07e8aa53732
   - enabled: 1
-    path: Assets/Scenes/EndOfTheDay.unity
+    path: Assets/Scenes/Game/EndOfTheDay.unity
     guid: 67d18ebf7e45e2f4387eebe08fce3328
   - enabled: 1
     path: Assets/Scenes/F_MainMenuRedirects/Credits.unity
@@ -27,19 +27,19 @@ EditorBuildSettings:
     path: Assets/Scenes/F_MainMenuRedirects/Options.unity
     guid: 9ad9bfcd0d5d1f743a1521158f2b3a91
   - enabled: 1
-    path: Assets/Scenes/Levels/Day1.unity
+    path: Assets/Scenes/Game/Levels/Day1.unity
     guid: f6567d63e7893a043b0ecb46a75a0a9f
   - enabled: 1
-    path: Assets/Scenes/Levels/Day2.unity
+    path: Assets/Scenes/Game/Levels/Day2.unity
     guid: 2739513cbe01ba848bb1da39df437f80
   - enabled: 1
-    path: Assets/Scenes/Levels/Day3.unity
+    path: Assets/Scenes/Game/Levels/Day3.unity
     guid: 718b0a3a810e2b5419e057dd065083cb
   - enabled: 1
-    path: Assets/Scenes/Levels/Day4.unity
+    path: Assets/Scenes/Game/Levels/Day4.unity
     guid: 3e44c1295541b3f4cbd641dd36834d45
   - enabled: 1
-    path: Assets/Scenes/Levels/Day5.unity
+    path: Assets/Scenes/Game/Levels/Day5.unity
     guid: 6de5a515d50c9764aa1ba10260bb1e02
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -27,6 +27,7 @@ public class SimpleTimer : MonoBehaviour
             timerEndedFlag = true;
             TimerEnded();
         }
+
     }
 
     void TimerEnded()
