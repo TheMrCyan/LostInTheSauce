@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class S_T_PlayerMovement : MonoBehaviour
@@ -32,7 +30,7 @@ public class S_T_PlayerMovement : MonoBehaviour
         input.y = Input.GetAxisRaw("Vertical");
         input.Normalize(); // Makes diagonal movement the same speed as other movement
 
-        isMoving = (input.x != 0 || input.y != 0);
+        isMoving = input.x != 0 || input.y != 0;
 
         if (isMoving)
         {
@@ -64,6 +62,12 @@ public class S_T_PlayerMovement : MonoBehaviour
         if (staminaBar != null)
         {
             staminaBar.transform.localScale = new Vector2(stamina / totalStamina, staminaBar.transform.localScale.y);
+        }
+
+        // Drop held item unless at the fridge or stove 
+        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer && !S_T_Stove.Instance.touchingPlayer)
+        {
+            heldItem.sprite = null;
         }
     }
 

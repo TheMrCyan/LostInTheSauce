@@ -1,43 +1,10 @@
 fileFormatVersion: 2
-guid: 0f3b4b12608929d47a4aa12320cef16b
+guid: 8a01fa5c45bcb7643809618bbc8e13cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4878994200698858949
-    second: SM_T_Rice_0
-  - first:
-      213: -4475729567927766456
-    second: SM_T_Rice_1
-  - first:
-      213: -2545816018803192602
-    second: SM_T_Rice_2
-  - first:
-      213: -97802181425388290
-    second: SM_T_Rice_3
-  - first:
-      213: -2977281079289772397
-    second: SM_T_Rice_4
-  - first:
-      213: 6635227324281331929
-    second: SM_T_Rice_5
-  - first:
-      213: 4082294670338255428
-    second: SM_T_Rice_6
-  - first:
-      213: 6816567056030006181
-    second: SM_T_Rice_7
-  - first:
-      213: 8336752334912762965
-    second: SM_T_Rice_8
-  - first:
-      213: -2098779087800175657
-    second: SM_T_Rice_9
-  - first:
-      213: -8131438502130607681
-    second: SM_T_Rice_10
-  - first:
-      213: -6965142815182364589
-    second: SM_T_Rice_11
+      213: 7808120628508971133
+    second: SM_T_CookedEgg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,29 +96,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SM_T_Rice_0
+      name: SM_T_CookedEgg_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 23
-        width: 59
+        x: 13
+        y: 9
+        width: 78
         height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cda8d1206ba5b340800000000000000
-      internalID: 4878994200698858949
+      spriteID: d705da9a7540c5c60800000000000000
+      internalID: 7808120628508971133
       vertices: []
       indices: 
       edges: []
@@ -171,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 56f918d9fdbd72b43834056db99bc7ee
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -180,19 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SM_T_Rice_0: 4878994200698858949
-      SM_T_Rice_1: -4475729567927766456
-      SM_T_Rice_10: -8131438502130607681
-      SM_T_Rice_11: -6965142815182364589
-      SM_T_Rice_2: -2545816018803192602
-      SM_T_Rice_3: -97802181425388290
-      SM_T_Rice_4: -2977281079289772397
-      SM_T_Rice_5: 6635227324281331929
-      SM_T_Rice_6: 4082294670338255428
-      SM_T_Rice_7: 6816567056030006181
-      SM_T_Rice_8: 8336752334912762965
-      SM_T_Rice_9: -2098779087800175657
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

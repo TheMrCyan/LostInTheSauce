@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public enum Food
 {
@@ -16,9 +15,14 @@ public enum Food
     Egg = 10,
     Milk = 11,
     Oil = 12,
-    Flour = 13,
-    Cocoa = 14,
-    Garlic = 15
+    Cocoa = 13,
+    Garlic = 14,
+    // Needs special code so it doesn't get spawned on its own
+    Bread = 15,
+    CookedFish = 16,
+    CookedMeat = 17,
+    CookedEgg = 18,
+    Chocolate = 19
 }
 
 public class S_T_ItemManager : MonoBehaviour

@@ -3,18 +3,20 @@ using UnityEngine;
 public class S_T_ItemGen : MonoBehaviour
 {
     private bool touchingPlayer;
+    private int lastRawIngredient = 14;
     public int id;
-    public SpriteRenderer visuals;
+    public SpriteRenderer[] visuals;
 
     void Awake()
     {
-        visuals = GetComponentInChildren<SpriteRenderer>(true);
+        visuals = GetComponentsInChildren<SpriteRenderer>(true);
     }
 
     void Update()
     {
         if (transform.position == Vector3.zero && S_T_MazeGenerator.Instance.validItemSpaces != null)
         {
+            // Initial spawn spot if placed in the world manually
             RandomizeLocation();
         }
 
@@ -25,7 +27,7 @@ public class S_T_ItemGen : MonoBehaviour
             S_T_ItemManager.Instance.newID += 1;
 
             // Hold pickup above player
-            S_T_PlayerMovement.Instance.heldItem.sprite = visuals.sprite;
+            S_T_PlayerMovement.Instance.heldItem.sprite = visuals[0].sprite;
 
             RandomizeLocation();
         }
@@ -33,7 +35,8 @@ public class S_T_ItemGen : MonoBehaviour
 
     private void RandomizeLocation()
     {
-        visuals.sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, S_T_ItemManager.Instance.ingredients.Length)];
+        visuals[0].sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, lastRawIngredient + 1)];
+        visuals[1].sprite = visuals[0].sprite;
         transform.position = S_T_MazeGenerator.Instance.validItemSpaces[Random.Range(0, S_T_MazeGenerator.Instance.validItemSpaces.Count)] * S_T_MazeGenerator.Instance.scale;
         // Only spawn outside of player view
         if (Vector2.Distance(transform.position, S_T_PlayerMovement.Instance.transform.position) < 22f)
@@ -56,6 +59,18 @@ public class S_T_ItemGen : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             touchingPlayer = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            var ing = collision.gameObject.GetComponent<S_T_ItemGen>();
+            if (id > ing.id)
+            {
+                RandomizeLocation();
+            }
         }
     }
 
