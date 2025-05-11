@@ -16,18 +16,7 @@ public class S_T_PrepTable : MonoBehaviour
     public List<Image> recipeBookIngredients;
     public List<int> ingredientsToRemove;
 
-    //added by Robbe (DM me if it's broken but hope to god it's not
-    [SerializeField, Tooltip("Amount of recipe's the player needs to make")] private int m_NumberOfRecipes;
-    [SerializeField, Tooltip("Amount of recipe's the player needs to make")] private int m_FinishedRecipes = 0;
 
-    [Header("Daily Recipes UI")]
-    [SerializeField] private GameObject recipeIndicatorPrefab;
-    [SerializeField] private Transform recipeIndicatorsParent;
-    [SerializeField] private List<Image> recipeStatusIndicators = new List<Image>();
-    [SerializeField] private Sprite completedRecipeSprite;
-
-    private List<Recipe> dailyRecipes = new List<Recipe>();
-    private int currentDay;
 
     private void Awake()
     {
@@ -58,8 +47,7 @@ public class S_T_PrepTable : MonoBehaviour
         recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.CookedMeat, (int)Food.Lettuce }));
         recipeBook.Add(new Recipe("Fries", new int[] { (int)Food.Potato, (int)Food.Oil }));
 
-        SelectDailyRecipes();
-        CreateRecipeIndicators();
+       
 
         // Prepare first recipe
         UpdateRecipe(0);
@@ -172,73 +160,20 @@ public class S_T_PrepTable : MonoBehaviour
             // Close menu
             prepTableUI.SetActive(false);
 
-            //code under this will send you to "EndOfTheDay" once all recipe's are made
-            CompletedRecipe();
-            CompletionChecker();
+
         }
         else
         {
             Debug.Log("Failed to make " + recipeBook[recipeToShow].title + "!");
         }
 
-       
-        
-    }
-    public void CompletionChecker()
-    {
-        // Update recipe indicators
-        for (int i = 0; i < m_FinishedRecipes; i++)
-        {
-            if (i < recipeStatusIndicators.Count)
-            {
-                recipeStatusIndicators[i].sprite = completedRecipeSprite;
-            }
-        }
 
-        if (m_FinishedRecipes >= m_NumberOfRecipes)
-        {
-            SceneManager.LoadScene("NextDayScene");
-        }
-    }
-    public void CompletedRecipe()
-    {
-        ++m_FinishedRecipes;
-    }
 
-    private void SelectDailyRecipes()
-    {
-        // Create a copy of the original recipe list
-        List<Recipe> tempRecipes = new List<Recipe>(recipeBook);
-
-        // Fisher-Yates shuffle algorithm
-        for (int i = tempRecipes.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            Recipe temp = tempRecipes[i];
-            tempRecipes[i] = tempRecipes[randomIndex];
-            tempRecipes[randomIndex] = temp;
-        }
-
-        // Select first N recipes
-        dailyRecipes = tempRecipes.GetRange(0, m_NumberOfRecipes);
-
-        // Replace the original recipe book with daily selection
-        recipeBook.Clear();
-        recipeBook.AddRange(dailyRecipes);
-    }
-
-    private void CreateRecipeIndicators()
-    {
-        // Create UI indicators for each daily recipe
-        foreach (Recipe recipe in dailyRecipes)
-        {
-            GameObject indicator = Instantiate(recipeIndicatorPrefab, recipeIndicatorsParent);
-            indicator.GetComponentInChildren<TextMeshProUGUI>().text = recipe.title;
-            recipeStatusIndicators.Add(indicator.GetComponent<Image>());
-        }
     }
 
 }
+
+
 
 public class Recipe
 {
