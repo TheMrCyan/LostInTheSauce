@@ -16,8 +16,6 @@ public class S_T_PrepTable : MonoBehaviour
     public List<Image> recipeBookIngredients;
     public List<int> ingredientsToRemove;
 
-
-
     private void Awake()
     {
         Instance = this;
@@ -40,14 +38,22 @@ public class S_T_PrepTable : MonoBehaviour
     private void Start()
     {
         recipeBook = new List<Recipe>();
-        recipeBook.Add(new Recipe("Pizza", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Meat, (int)Food.Cheese }));
         recipeBook.Add(new Recipe("Burger", new int[] { (int)Food.Bread, (int)Food.CookedMeat, (int)Food.Tomato, (int)Food.Lettuce, (int)Food.Cheese }));
+        recipeBook.Add(new Recipe("Pizza", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Meat, (int)Food.Cheese }));
+        recipeBook.Add(new Recipe("Chocolate Cake", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Chocolate }));
+        recipeBook.Add(new Recipe("Salad", new int[] { (int)Food.Tomato, (int)Food.Lettuce, (int)Food.Cucumber }));
         recipeBook.Add(new Recipe("Sushi", new int[] { (int)Food.Fish, (int)Food.Rice }));
+        recipeBook.Add(new Recipe("Fish & Chips", new int[] { (int)Food.Potato, (int)Food.Oil, (int)Food.CookedFish }));
+        recipeBook.Add(new Recipe("Dumplings", new int[] { (int)Food.Dough, (int)Food.Meat, (int)Food.Cheese }));
+        recipeBook.Add(new Recipe("Bacon & Eggs", new int[] { (int)Food.CookedMeat, (int)Food.CookedEgg }));
         recipeBook.Add(new Recipe("Cookies", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Chocolate }));
-        recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.CookedMeat, (int)Food.Lettuce }));
+        recipeBook.Add(new Recipe("Spaghetti", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Garlic }));
+        recipeBook.Add(new Recipe("Sundae", new int[] { (int)Food.Milk, (int)Food.Sugar }));
+        recipeBook.Add(new Recipe("Sandwich", new int[] { (int)Food.Bread, (int)Food.Cucumber, (int)Food.Tomato, (int)Food.Cheese, (int)Food.Meat }));
         recipeBook.Add(new Recipe("Fries", new int[] { (int)Food.Potato, (int)Food.Oil }));
-
-       
+        recipeBook.Add(new Recipe("Garlic Bread", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.Cheese }));
+        recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.CookedMeat, (int)Food.Lettuce }));
+        recipeBook.Add(new Recipe("Chocolate Milk", new int[] { (int)Food.Cocoa, (int)Food.Milk }));
 
         // Prepare first recipe
         UpdateRecipe(0);
@@ -113,7 +119,6 @@ public class S_T_PrepTable : MonoBehaviour
             }
             recipeBookIngredients[i].sprite = S_T_ItemManager.Instance.ingredients[recipeBook[recipeId].ingredients[i]];
         }
-
     }
 
     public void NextRecipe(int direction)
@@ -159,18 +164,12 @@ public class S_T_PrepTable : MonoBehaviour
             }
             // Close menu
             prepTableUI.SetActive(false);
-
-
         }
         else
         {
             Debug.Log("Failed to make " + recipeBook[recipeToShow].title + "!");
         }
-
-
-
     }
-
 }
 
 
