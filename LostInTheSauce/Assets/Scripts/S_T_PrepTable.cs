@@ -178,7 +178,11 @@ public class S_T_PrepTable : MonoBehaviour
                 var curDay = GetCurrentDay();
                 if (curDay < 5)
                 {
-                    SceneManager.LoadScene("Day" + (curDay + 1).ToString());
+                    SceneManager.LoadScene("EndOfTheDay");
+                }
+                if (curDay == 5)
+                {
+                    SceneManager.LoadScene("VictoryScreen");
                 }
             }
         }

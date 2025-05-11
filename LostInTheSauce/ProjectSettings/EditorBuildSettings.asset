@@ -12,20 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/GameOverScene.unity
     guid: 2274da21ad30abb498d4625af64476d4
   - enabled: 1
-    path: Assets/Scenes/R_Workspace.unity
-    guid: 6a021e983d48c8349952a07e8aa53732
-  - enabled: 1
     path: Assets/Scenes/Game/EndOfTheDay.unity
     guid: 67d18ebf7e45e2f4387eebe08fce3328
   - enabled: 1
-    path: Assets/Scenes/F_MainMenuRedirects/Credits.unity
-    guid: 4feafc65a96770b4493a9eff17163e59
-  - enabled: 1
-    path: Assets/Scenes/F_MainMenuRedirects/Instructions.unity
-    guid: 6f9751dd8e7ef0f429e3dc0aef32d7ed
-  - enabled: 1
-    path: Assets/Scenes/F_MainMenuRedirects/Options.unity
-    guid: 9ad9bfcd0d5d1f743a1521158f2b3a91
+    path: Assets/Scenes/Game/VictoryScreen.unity
+    guid: 1ecd2969c1ec36449a5251f8138c8d83
   - enabled: 1
     path: Assets/Scenes/Game/Levels/Day1.unity
     guid: f6567d63e7893a043b0ecb46a75a0a9f
