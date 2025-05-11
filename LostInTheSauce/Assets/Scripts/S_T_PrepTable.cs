@@ -9,8 +9,10 @@ public class S_T_PrepTable : MonoBehaviour
     public static S_T_PrepTable Instance { get; private set; }
 
     private bool touchingPlayer;
+    private int finishedRecipes;
     private List<Recipe> recipeBook;
     private int recipeToShow;
+    public int recipesToMake;
     public GameObject prepTableUI;
     public TextMeshProUGUI recipeTitle;
     public List<Image> recipeBookIngredients;
@@ -156,6 +158,7 @@ public class S_T_PrepTable : MonoBehaviour
         if (!failedRecipe)
         {
             Debug.Log("Made " + recipeBook[recipeToShow].title + "!");
+
             // Remove ingredients from fridge
             foreach (int id in ingredientsToRemove)
             {
@@ -164,6 +167,17 @@ public class S_T_PrepTable : MonoBehaviour
             }
             // Close menu
             prepTableUI.SetActive(false);
+
+            // Finish day if enough recipes have been made
+            ++finishedRecipes;
+            if (finishedRecipes >= recipesToMake)
+            {
+                var curDay = GetCurrentDay();
+                if (curDay < 5)
+                {
+                    SceneManager.LoadScene("Day" + (curDay + 1).ToString());
+                }
+            }
         }
         else
         {

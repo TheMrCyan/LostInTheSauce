@@ -4,7 +4,7 @@ public class S_T_Stove : MonoBehaviour
 {
     public static S_T_Stove Instance { get; private set; }
 
-    public bool touchingPlayer;
+    [System.NonSerialized] public bool touchingPlayer;
     private bool cooked;
     private int ingredientId;
     private float cookingTime;
