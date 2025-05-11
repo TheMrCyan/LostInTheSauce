@@ -2323,6 +2323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipesToMake: 1
+  availableRecipes: 3
   prepTableUI: {fileID: 408244195}
   recipeTitle: {fileID: 485212248}
   recipeBookIngredients:
@@ -2331,6 +2332,7 @@ MonoBehaviour:
   - {fileID: 1934589493}
   - {fileID: 1062715452}
   - {fileID: 1718364167}
+  ingredientsToRemove: 
 --- !u!61 &1395150740
 BoxCollider2D:
   m_ObjectHideFlags: 0

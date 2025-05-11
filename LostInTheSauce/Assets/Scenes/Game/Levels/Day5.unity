@@ -2325,6 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipesToMake: 5
+  availableRecipes: 6
   prepTableUI: {fileID: 39078204}
   recipeTitle: {fileID: 39078203}
   recipeBookIngredients:

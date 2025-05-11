@@ -13,6 +13,7 @@ public class S_T_PrepTable : MonoBehaviour
     private List<Recipe> recipeBook;
     private int recipeToShow;
     public int recipesToMake;
+    public int availableRecipes;
     public GameObject prepTableUI;
     public TextMeshProUGUI recipeTitle;
     public List<Image> recipeBookIngredients;
@@ -56,6 +57,8 @@ public class S_T_PrepTable : MonoBehaviour
         recipeBook.Add(new Recipe("Garlic Bread", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.Cheese }));
         recipeBook.Add(new Recipe("Kebab", new int[] { (int)Food.Bread, (int)Food.Garlic, (int)Food.CookedMeat, (int)Food.Lettuce }));
         recipeBook.Add(new Recipe("Chocolate Milk", new int[] { (int)Food.Cocoa, (int)Food.Milk }));
+
+        SelectDailyRecipes();
 
         // Prepare first recipe
         UpdateRecipe(0);
@@ -184,9 +187,29 @@ public class S_T_PrepTable : MonoBehaviour
             Debug.Log("Failed to make " + recipeBook[recipeToShow].title + "!");
         }
     }
+
+    private void SelectDailyRecipes()
+    {
+        // Make sure available recipes is never bigger than the original book
+        availableRecipes = Mathf.Clamp(availableRecipes, 0, recipeBook.Count);
+
+        // Create a copy of the original recipe list
+        List<Recipe> tempRecipes = new List<Recipe>(recipeBook);
+
+        // Fisher-Yates shuffle algorithm
+        for (int i = tempRecipes.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            Recipe temp = tempRecipes[i];
+            tempRecipes[i] = tempRecipes[randomIndex];
+            tempRecipes[randomIndex] = temp;
+        }
+
+        // Replace the original recipe book with daily selection
+        recipeBook.Clear();
+        recipeBook.AddRange(tempRecipes.GetRange(0, availableRecipes));
+    }
 }
-
-
 
 public class Recipe
 {
