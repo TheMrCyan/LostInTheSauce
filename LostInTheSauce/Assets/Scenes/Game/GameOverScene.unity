@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 33410302}
-        m_TargetAssemblyTypeName: S_R_RestartButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: S_R_NextDay, Assembly-CSharp
         m_MethodName: MainMenuButton
         m_Mode: 1
         m_Arguments:
@@ -262,9 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 33410297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3049f88bd7145428c7e9b3f7458e12, type: 3}
+  m_Script: {fileID: 11500000, guid: ffeed1b9c5212374085116ed4fde6c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TotalDays: 5
 --- !u!1 &150142540
 GameObject:
   m_ObjectHideFlags: 0

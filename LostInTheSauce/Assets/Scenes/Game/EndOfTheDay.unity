@@ -793,7 +793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click to start the next day day
+  m_text: Click to start the next day
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffeed1b9c5212374085116ed4fde6c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DayCount: 1
+  m_TotalDays: 5
 --- !u!4 &1426523022
 Transform:
   m_ObjectHideFlags: 0

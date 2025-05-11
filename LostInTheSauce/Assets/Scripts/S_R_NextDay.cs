@@ -26,4 +26,10 @@ public class S_R_NextDay : MonoBehaviour
     {
         SceneManager.LoadScene("GameOverScene");
     }
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("R_HomeScreen");
+        m_DayCount = 2;
+
+    }
 }

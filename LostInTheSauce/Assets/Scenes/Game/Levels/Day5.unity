@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8dcc6320d1b0d43a80b97b627ccce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShiftTime: 2
+  ShiftTime: 300
   timerText: {fileID: 952687694}
 --- !u!114 &952687694
 MonoBehaviour:
