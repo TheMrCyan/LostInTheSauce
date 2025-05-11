@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class S_R_MainMenuButtonFunctions : MonoBehaviour
 {
     [SerializeField] GameObject m_camera;
-    int m_moveDistance = 50;
+    int m_moveDistance = 45;
     public void PlayButton()
     {
         SceneManager.LoadScene("Day1");
@@ -15,7 +15,7 @@ public class S_R_MainMenuButtonFunctions : MonoBehaviour
     }
     public void OptionButton()
     {
-        m_camera.transform.position += new Vector3(0, m_moveDistance, 0);
+        m_camera.transform.position += new Vector3(-2* m_moveDistance, 0, 0);
     }
     public void CreditsButton()
     {
