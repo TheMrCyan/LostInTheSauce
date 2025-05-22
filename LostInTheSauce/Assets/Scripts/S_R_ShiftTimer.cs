@@ -20,7 +20,8 @@ public class SimpleTimer : MonoBehaviour
         // Format time as MM:SS
         int minutes = Mathf.FloorToInt(ShiftTime / 60f);
         int seconds = Mathf.FloorToInt(ShiftTime % 60f);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        string timer = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = timer;
 
         if (ShiftTime <= 0.0f)
         {
