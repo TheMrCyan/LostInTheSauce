@@ -32,7 +32,5 @@ public class S_R_MainMenuButtonFunctions : MonoBehaviour
     public void BackButtonInstruction()
     {
         m_camera.transform.position -= new Vector3(m_moveDistance, 0, 0);
-
     }
-
 }

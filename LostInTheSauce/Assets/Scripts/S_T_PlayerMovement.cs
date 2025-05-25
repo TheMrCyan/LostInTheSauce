@@ -4,7 +4,10 @@ public class S_T_PlayerMovement : MonoBehaviour
 {
     public static S_T_PlayerMovement Instance { get; private set; }
 
+    private bool canSprint;
     private bool isMoving;
+    [System.NonSerialized] public bool touchingFloorItem;
+    [System.NonSerialized] public bool touchingTrash;
     private float speed;
     private float stamina;
     public float totalStamina;
@@ -12,6 +15,7 @@ public class S_T_PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject staminaBar;
     public SpriteRenderer heldItem;
+
 
     void Awake()
     {
@@ -32,16 +36,29 @@ public class S_T_PlayerMovement : MonoBehaviour
 
         isMoving = input.x != 0 || input.y != 0;
 
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            canSprint = true;
+        }
+
         if (isMoving)
         {
             speed = 6f;
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                // Sprinting
-                if (stamina > 0f)
+                if (canSprint)
                 {
-                    stamina -= 0.2f;
-                    speed = 12f;
+                    // Sprinting
+                    if (stamina > 0f)
+                    {
+                        stamina -= 0.2f;
+                        speed = 12f;
+                    }
+                    else canSprint = false;
+                }
+                else
+                {
+                    stamina += 0.1f;
                 }
             }
             else
@@ -65,7 +82,7 @@ public class S_T_PlayerMovement : MonoBehaviour
         }
 
         // Drop held item unless at the fridge or stove 
-        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer && !S_T_Stove.Instance.touchingPlayer)
+        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer && !S_T_Stove.Instance.touchingPlayer && !touchingFloorItem)
         {
             heldItem.sprite = null;
         }
@@ -74,5 +91,21 @@ public class S_T_PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = input * speed * 60 * Time.fixedDeltaTime;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            touchingFloorItem = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            touchingFloorItem = false;
+        }
     }
 }
