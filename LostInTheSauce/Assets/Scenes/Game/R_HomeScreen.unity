@@ -3472,8 +3472,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Meet your daily target to keep your job. Good luck!
-
+  m_text: 'Hold tab to see what you can make on the stove. Meet your daily target
+    to keep your job. Good luck!
 
 
 '
@@ -3503,7 +3503,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
