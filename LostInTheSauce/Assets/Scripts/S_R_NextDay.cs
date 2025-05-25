@@ -24,7 +24,7 @@ public class S_R_NextDay : MonoBehaviour
 
     public void GiveUp()
     {
-        SceneManager.LoadScene("GameOverScene");
+        SceneManager.LoadScene("YouDestroyedTheKitchen");
     }
     public void MainMenuButton()
     {

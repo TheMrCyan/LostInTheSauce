@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/EndOfTheDay.unity
     guid: 67d18ebf7e45e2f4387eebe08fce3328
   - enabled: 1
+    path: Assets/Scenes/Game/YouDestroyedTheKitchen.unity
+    guid: 71916cd91d7727e41b889a686cb07f50
+  - enabled: 1
     path: Assets/Scenes/Game/VictoryScreen.unity
     guid: 1ecd2969c1ec36449a5251f8138c8d83
   - enabled: 1
