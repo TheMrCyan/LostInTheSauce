@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class S_T_ItemGen : MonoBehaviour
 {
-    private bool held;
+    public bool held;
     private bool touchingPlayer;
     private int lastRawIngredient = 14;
     public int id;
@@ -27,6 +27,7 @@ public class S_T_ItemGen : MonoBehaviour
             S_T_PlayerMovement.Instance.heldItem.sprite = visuals[0].sprite;
 
             held = true;
+            S_T_Fridge.Instance.playerHolding = this;
             tag = "Untagged";
             S_T_PlayerMovement.Instance.touchingFloorItem = false;
             visuals[0].enabled = false;
@@ -34,23 +35,22 @@ public class S_T_ItemGen : MonoBehaviour
         }
         else if (held && Input.GetKeyDown(KeyCode.Space) && !S_T_PlayerMovement.Instance.touchingFloorItem) // Drop item
         {
-            held = false;
-            tag = "Pickup";
-            visuals[0].enabled = true;
-            visuals[1].enabled = true;
-            transform.position = S_T_PlayerMovement.Instance.transform.position;
+            LayDown();
 
             // Throw item away
             if (S_T_PlayerMovement.Instance.touchingTrash)
             {
                 RandomizeLocation();
             }
-
-            //
+            // Stove interaction
+            else if (S_T_Stove.Instance.touchingPlayer)
+            {
+                StoreLinkedItem(0);
+            }
         }
     }
 
-    private void RandomizeLocation()
+    public void RandomizeLocation()
     {
         // Update ID to not override other spawned pickups
         id = S_T_ItemManager.Instance.newID;
@@ -101,5 +101,19 @@ public class S_T_ItemGen : MonoBehaviour
         {
             touchingPlayer = false;
         }
+    }
+
+    public void StoreLinkedItem(int id)
+    {
+        transform.position = new Vector2(1000 + id * 2, 0);
+    }
+
+    public void LayDown()
+    {
+        held = false;
+        tag = "Pickup";
+        visuals[0].enabled = true;
+        visuals[1].enabled = true;
+        transform.position = S_T_PlayerMovement.Instance.transform.position;
     }
 }

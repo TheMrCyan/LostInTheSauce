@@ -108,4 +108,10 @@ public class S_T_PlayerMovement : MonoBehaviour
             touchingFloorItem = false;
         }
     }
+
+    public S_T_ItemGen GrabLinkedItem(int id)
+    {
+        var item = Physics2D.OverlapCircle(new Vector2(1000 + id * 2, 0), 1);
+        return item.gameObject.GetComponent<S_T_ItemGen>();
+    }
 }

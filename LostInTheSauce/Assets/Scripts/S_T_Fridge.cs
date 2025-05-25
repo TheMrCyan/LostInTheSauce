@@ -9,6 +9,7 @@ public class S_T_Fridge : MonoBehaviour
     [System.NonSerialized] public bool touchingPlayer;
     [System.NonSerialized] public int[] fridgeContents;
     [System.NonSerialized] public List<Image> fridgeVisuals;
+    public S_T_ItemGen playerHolding;
     public GameObject fridgeUI;
 
     private void Awake()
@@ -80,11 +81,14 @@ public class S_T_Fridge : MonoBehaviour
                 {
                     if (fridgeContents[i] == -1)
                     {
+                        playerHolding.LayDown();
+                        playerHolding.StoreLinkedItem(i + 1);
                         fridgeContents[i] = id;
                         fridgeVisuals[i].sprite = S_T_PlayerMovement.Instance.heldItem.sprite;
                         break;
                     }
                 }
+
                 S_T_PlayerMovement.Instance.heldItem.sprite = null;
             }
         }
@@ -111,6 +115,9 @@ public class S_T_Fridge : MonoBehaviour
             fridgeContents[id] = -1;
             S_T_PlayerMovement.Instance.heldItem.sprite = fridgeVisuals[id].sprite;
             fridgeVisuals[id].sprite = null;
+
+            var item = S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1);
+            item.held = true;
         }
     }
 }

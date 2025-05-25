@@ -165,6 +165,7 @@ public class S_T_PrepTable : MonoBehaviour
             // Remove ingredients from fridge
             foreach (int id in ingredientsToRemove)
             {
+                S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1).RandomizeLocation();
                 S_T_Fridge.Instance.fridgeContents[id] = -1;
                 S_T_Fridge.Instance.fridgeVisuals[id].sprite = null;
             }

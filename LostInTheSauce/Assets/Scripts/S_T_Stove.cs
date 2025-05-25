@@ -20,7 +20,7 @@ public class S_T_Stove : MonoBehaviour
 
     private void Update()
     {
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Space))
+        if (touchingPlayer && Input.GetKeyUp(KeyCode.Space))
         {
             if (heldItem.sprite == null)
             {
@@ -46,6 +46,7 @@ public class S_T_Stove : MonoBehaviour
                 cookingTime = 0f;
                 graceTimer = 0f;
                 S_T_PlayerMovement.Instance.heldItem.sprite = heldItem.sprite;
+                S_T_PlayerMovement.Instance.GrabLinkedItem(0).held = true;
                 heldItem.sprite = null;
                 cooked = false;
             }
@@ -79,6 +80,11 @@ public class S_T_Stove : MonoBehaviour
                         heldItem.sprite = null;
                         break;
                 }
+
+                // Update the physical item
+                var ingredient = S_T_PlayerMovement.Instance.GrabLinkedItem(0);
+                ingredient.visuals[0].sprite = heldItem.sprite;
+                ingredient.visuals[1].sprite = heldItem.sprite;
                 cooked = true;
             }
 
