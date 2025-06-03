@@ -22,7 +22,7 @@ public class S_R_SkillManager : MonoBehaviour
 
     private void Update()
     {
-
+       // ===================================== SKILL 3 ======================================
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             TryUseSkill3(1, 5f);
