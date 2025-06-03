@@ -8,42 +8,36 @@ public class S_R_SkillManager : MonoBehaviour
     [SerializeField, Tooltip("This value will determine whether the skill is unlocked or not")] static public bool Skill2Unlocked = false;
     [SerializeField, Tooltip("This value will determine whether the skill is unlocked or not")] static public bool Skill3Unlocked = false;
     [SerializeField, Tooltip("This value will determine whether the skill is unlocked or not")] static public bool Skill4Unlocked = false;
-    [SerializeField, Tooltip("This is the value determining how far forward the item spawns in front of the player")] private float distance = 2f;
     [SerializeField, Tooltip("Input player here")] private GameObject m_Player;
 
-    public bool held;
-    private bool touchingPlayer;
-    private int lastRawIngredient = 14;
-    public int id;
-    public SpriteRenderer[] visuals;
-    public S_T_ItemGen ingredient;
-
+  
+    //skill 3
     private Vector3 OldPos;
     private Vector3 NewPos;
+    Collider2D hit;
+    [SerializeField, Tooltip("Cooldown of skill 3 in seconds")] private float skill3Cooldown = 3f;
+    private float skill3LastUsedTime = -Mathf.Infinity;
 
-    private void Awake()
-    {
-        visuals = GetComponentsInChildren<SpriteRenderer>(true);
-    }
+ 
 
     private void Update()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Skill3(1);
+            TryUseSkill3(1, 5f);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Skill3(2);
+            TryUseSkill3(2, 5f);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Skill3(3);
+            TryUseSkill3(3, 5f);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Skill3(4);
+            TryUseSkill3(4, 5f);
         }
 
     }
@@ -63,41 +57,76 @@ public class S_R_SkillManager : MonoBehaviour
     }
 
     [Tooltip("Spawn one random item")] //teleport forward 5 units
-    private void Skill3(int i)
+    private void Skill3(int i, float range)
     {
 
         OldPos = m_Player.transform.position;
 
         switch (i)
         {
-       
-        
             case 1:
                 OldPos = m_Player.transform.position;
-                NewPos = OldPos + m_Player.transform.up * 5f;
-                Collider2D hit = Physics2D.OverlapPoint(NewPos);
-                if (hit != null && hit.CompareTag("Wall"))
+                NewPos = OldPos + m_Player.transform.up * range;
+                hit = Physics2D.OverlapPoint(NewPos);
+                if (hit != null && hit.CompareTag("Floor"))
                 {
-                    // There is something at the destination
+                    m_Player.transform.position = NewPos;
+                    m_Player.transform.position = NewPos;
+                    range = 5;
                 }
-                m_Player.transform.position = NewPos;
-                m_Player.transform.position = NewPos;
+                else
+                {
+                    Skill3(i, range + 0.1f);
+                }
+
                 break;
             case 2:
-                NewPos = OldPos + m_Player.transform.up * -5f;
-                m_Player.transform.position = NewPos;
-                m_Player.transform.position = NewPos;
+                OldPos = m_Player.transform.position;
+                NewPos = OldPos + m_Player.transform.up * -range;
+                hit = Physics2D.OverlapPoint(NewPos);
+                if (hit != null && hit.CompareTag("Floor"))
+                {
+                    m_Player.transform.position = NewPos;
+                    m_Player.transform.position = NewPos;
+                    range = 5;
+                }
+                else
+                {
+                    Skill3(i, range + 0.1f);
+                }
                 break;
             case 3:
-                NewPos = OldPos + Vector3.left.normalized * 5f;
-                m_Player.transform.position = NewPos;
-                m_Player.transform.position = NewPos;
-                break; 
-            case 4:
-                NewPos = OldPos + Vector3.right.normalized * 5f;
-                m_Player.transform.position = NewPos;
-                m_Player.transform.position = NewPos;
+                OldPos = m_Player.transform.position;
+                NewPos = OldPos + Vector3.left * range;
+                hit = Physics2D.OverlapPoint(NewPos);
+                if (hit != null && hit.CompareTag("Floor"))
+                {
+                    m_Player.transform.position = NewPos;
+                    m_Player.transform.position = NewPos;
+                    range = 5;
+                }
+                else
+                {
+                    Skill3(i, range + 0.1f);
+                }
                 break;
+                    case 4:
+                OldPos = m_Player.transform.position;
+                NewPos = OldPos + Vector3.right * range;
+                hit = Physics2D.OverlapPoint(NewPos);
+                if (hit != null && hit.CompareTag("Floor"))
+                {
+                    m_Player.transform.position = NewPos;
+                    m_Player.transform.position = NewPos;
+                    range = 5;
+                }
+                else if (range < 6)
+                {
+                   
+                    Skill3(i, range + 0.1f);
+                }
+                break;
+
         }
     }
 
@@ -106,4 +135,23 @@ public class S_R_SkillManager : MonoBehaviour
     {
         //put skill code here
     }
+
+
+
+
+
+
+    private void TryUseSkill3(int i, float range)
+    {
+        if (Time.time - skill3LastUsedTime >= skill3Cooldown)
+        {
+            Skill3(i, range);
+            skill3LastUsedTime = Time.time;
+        }
+        else
+        {
+            Debug.Log("Skill 3 is on cooldown!");
+        }
+    }
+
 }
