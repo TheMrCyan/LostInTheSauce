@@ -11,8 +11,12 @@ public class S_T_MazeGenerator : MonoBehaviour
     public int width = 40;
     public int height = 24;
     public int kitchenSize = 6;
+    private int kitchenX;
+    private int kitchenY;
     public float scale = 1;
     public List<Vector2> validItemSpaces;
+    private GameObject[,] wallObjects;
+    public Sprite[] wallSprites;
 
     private bool[,] maze;  // true = path, false = wall
 
@@ -23,6 +27,11 @@ public class S_T_MazeGenerator : MonoBehaviour
 
     void Start()
     {
+        kitchenX = width / 2 - kitchenSize / 2;
+        kitchenY = height / 2 - kitchenSize / 2;
+
+        wallObjects = new GameObject[width, height];
+
         validItemSpaces = new List<Vector2>();
         player.position = new Vector3(scale * (width / 2), scale * (height / 2), 0);
 
@@ -31,10 +40,6 @@ public class S_T_MazeGenerator : MonoBehaviour
 
         maze = new bool[width, height];
         GenerateMaze();
-
-        // Calculate kitchen position
-        int kitchenX = width / 2 - kitchenSize / 2;
-        int kitchenY = height / 2 - kitchenSize / 2;
 
         for (int x = 0; x < width; x++)
         {
@@ -53,7 +58,27 @@ public class S_T_MazeGenerator : MonoBehaviour
                 }
                 else
                 {
-                    Instantiate(wallPrefab, new Vector3(x * scale, y * scale, 0), Quaternion.identity, transform);
+                    GameObject wall = Instantiate(wallPrefab, new Vector3(x * scale, y * scale, 0), Quaternion.identity, transform);
+                    wallObjects[x, y] = wall; // Store wall in 2D array
+                }
+            }
+        }
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (wallObjects[x, y] != null)
+                {
+                    int bitmask = GetWallBitmask(x, y);
+                    if (bitmask >= 0 && bitmask < wallSprites.Length)
+                    {
+                        wallObjects[x, y].GetComponent<SpriteRenderer>().sprite = wallSprites[bitmask];
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Bitmask {bitmask} out of range at ({x},{y})");
+                    }
                 }
             }
         }
@@ -110,10 +135,31 @@ public class S_T_MazeGenerator : MonoBehaviour
         return pos.x > 0 && pos.x < width - 1 && pos.y > 0 && pos.y < height - 1;
     }
 
+    int GetWallBitmask(int x, int y)
+    {
+        int bitmask = 0;
+
+        if (IsWall(x, y + 1)) bitmask |= 1;   // North (Up)
+        if (IsWall(x + 1, y)) bitmask |= 2;   // East (Right)
+        if (IsWall(x, y - 1)) bitmask |= 4;   // South (Down)
+        if (IsWall(x - 1, y)) bitmask |= 8;   // West (Left)
+
+        return bitmask;
+    }
+
+    bool IsWall(int x, int y)
+    {
+        if (x < 0 || y < 0 || x >= width || y >= height)
+            return false; // Treat out-of-bounds as non-wall
+        if (x >= kitchenX && x < kitchenX + kitchenSize &&
+        y >= kitchenY && y < kitchenY + kitchenSize)
+            return false;
+        return !maze[x, y]; // Maze stores paths as true, walls as false
+    }
+
     private void OnDestroy()
     {
         floorPrefab.gameObject.transform.localScale = Vector3.one;
         wallPrefab.gameObject.transform.localScale = Vector3.one;
     }
 }
-
