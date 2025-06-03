@@ -73,6 +73,7 @@ public class S_R_SkillManager : MonoBehaviour
                     m_Player.transform.position = NewPos;
                     m_Player.transform.position = NewPos;
                     range = 5;
+                    skill3LastUsedTime = Time.time;
                 }
                 else
                 {
@@ -89,6 +90,7 @@ public class S_R_SkillManager : MonoBehaviour
                     m_Player.transform.position = NewPos;
                     m_Player.transform.position = NewPos;
                     range = 5;
+                    skill3LastUsedTime = Time.time;
                 }
                 else
                 {
@@ -104,6 +106,7 @@ public class S_R_SkillManager : MonoBehaviour
                     m_Player.transform.position = NewPos;
                     m_Player.transform.position = NewPos;
                     range = 5;
+                    skill3LastUsedTime = Time.time;
                 }
                 else
                 {
@@ -119,6 +122,7 @@ public class S_R_SkillManager : MonoBehaviour
                     m_Player.transform.position = NewPos;
                     m_Player.transform.position = NewPos;
                     range = 5;
+                    skill3LastUsedTime = Time.time;
                 }
                 else if (range < 6)
                 {
@@ -146,7 +150,7 @@ public class S_R_SkillManager : MonoBehaviour
         if (Time.time - skill3LastUsedTime >= skill3Cooldown)
         {
             Skill3(i, range);
-            skill3LastUsedTime = Time.time;
+           
         }
         else
         {
