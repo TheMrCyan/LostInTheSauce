@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum Food
 {
+    // Raw ingredients
     Tomato = 0,
     Meat = 1,
     Dough = 2,
@@ -17,7 +18,7 @@ public enum Food
     Oil = 12,
     Cocoa = 13,
     Garlic = 14,
-    // Needs special code so it doesn't get spawned on its own
+    // Processed ingredients
     Bread = 15,
     CookedFish = 16,
     CookedMeat = 17,
