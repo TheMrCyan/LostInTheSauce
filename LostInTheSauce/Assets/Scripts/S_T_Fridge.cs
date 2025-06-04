@@ -50,9 +50,12 @@ public class S_T_Fridge : MonoBehaviour
 
     private void Update()
     {
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Space))
+        if (!S_T_PauseMenu.isPaused)
         {
-            fridgeUI.SetActive(!fridgeUI.activeSelf);
+            if (touchingPlayer && Input.GetKeyDown(KeyCode.Space))
+            {
+                fridgeUI.SetActive(!fridgeUI.activeSelf);
+            }
         }
     }
 

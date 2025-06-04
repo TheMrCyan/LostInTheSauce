@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6232acdd86a411e4bb0ea104f2e03e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalStamina: 100
+  totalStamina: 200
   staminaBar: {fileID: 0}
   heldItem: {fileID: 1528554108850363871}
   speedMultiplier: 2

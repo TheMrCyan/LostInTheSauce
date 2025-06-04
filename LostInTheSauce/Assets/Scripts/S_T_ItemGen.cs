@@ -21,35 +21,39 @@ public class S_T_ItemGen : MonoBehaviour
             RandomizeLocation();
         }
 
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Space) && S_T_PlayerMovement.Instance.heldItem.sprite == null && !held)
+        if (!S_T_PauseMenu.isPaused)
         {
-            // Hold pickup above player
-            S_T_PlayerMovement.Instance.heldItem.sprite = visuals[0].sprite;
-
-            held = true;
-            S_T_Fridge.Instance.playerHolding = this;
-            tag = "Untagged";
-            S_T_PlayerMovement.Instance.touchingFloorItem = false;
-            visuals[0].enabled = false;
-            visuals[1].enabled = false;
-        }
-        else if (held && Input.GetKeyDown(KeyCode.Space) && !S_T_PlayerMovement.Instance.touchingFloorItem) // Drop item
-        {
-            LayDown();
-
-            // Throw item away
-            if (S_T_PlayerMovement.Instance.touchingTrash)
+            if (touchingPlayer && Input.GetKeyDown(KeyCode.Space) && S_T_PlayerMovement.Instance.heldItem.sprite == null && !held)
             {
-                RandomizeLocation();
+                // Hold pickup above player
+                S_T_PlayerMovement.Instance.heldItem.sprite = visuals[0].sprite;
+
+                held = true;
+                S_T_Fridge.Instance.playerHolding = this;
+                tag = "Untagged";
+                S_T_PlayerMovement.Instance.touchingFloorItem = false;
+                visuals[0].enabled = false;
+                visuals[1].enabled = false;
+
+                StoreLinkedItem(7);
             }
-            // Stove interaction
-            else if (S_T_Stove.Instance.touchingPlayer)
+            else if (held && Input.GetKeyDown(KeyCode.Space) && !S_T_PlayerMovement.Instance.touchingFloorItem) // Drop item
             {
-                StoreLinkedItem(0);
+                LayDown();
+
+                // Throw item away
+                if (S_T_PlayerMovement.Instance.touchingTrash)
+                {
+                    RandomizeLocation();
+                }
+                // Stove interaction
+                else if (S_T_Stove.Instance.touchingPlayer)
+                {
+                    StoreLinkedItem(0);
+                }
             }
         }
     }
-
     public void RandomizeLocation()
     {
         // Update ID to not override other spawned pickups

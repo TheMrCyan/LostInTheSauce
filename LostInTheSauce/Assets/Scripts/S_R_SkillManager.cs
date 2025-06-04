@@ -40,7 +40,6 @@ public class S_R_SkillManager : MonoBehaviour
     private float skill3LastUsedTime = -Mathf.Infinity;
 
     //skill 4
-    private bool cooked;
     private int ingredientId;
     private float cookingTime;
     private float graceTimer;
@@ -51,43 +50,44 @@ public class S_R_SkillManager : MonoBehaviour
 
     private void Update()
     {
+        if (!S_T_PauseMenu.isPaused)
+        {
+            // ===================================== SKILL 1 ======================================
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                TryUseSkill1();
+            }
 
-        // ===================================== SKILL 1 ======================================
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            TryUseSkill1();
-        }
+            // ===================================== SKILL 2 ======================================
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                TryUseSkill2();
+            }
 
-        // ===================================== SKILL 2 ======================================
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TryUseSkill2();
-        }
+            // ===================================== SKILL 3 ======================================
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                TryUseSkill3(1, 5f);
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                TryUseSkill3(2, 5f);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                TryUseSkill3(3, 5f);
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                TryUseSkill3(4, 5f);
+            }
 
-        // ===================================== SKILL 3 ======================================
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            TryUseSkill3(1, 5f);
+            // ===================================== SKILL 4 ======================================
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Skill4();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            TryUseSkill3(2, 5f);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            TryUseSkill3(3, 5f);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            TryUseSkill3(4, 5f);
-        }
-
-        // ===================================== SKILL 4 ======================================
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Skill4();
-        }
-
     }
 
     [Tooltip("Spawn one random item")]
@@ -204,6 +204,17 @@ public class S_R_SkillManager : MonoBehaviour
     {
         // Increase time while cooking
 
+        var ingredient = S_T_PlayerMovement.Instance.GrabLinkedItem(7);
+
+        for (int i = 0; i < S_T_ItemManager.Instance.ingredients.Length; i++)
+        {
+            if (S_T_PlayerMovement.Instance.heldItem.sprite == S_T_ItemManager.Instance.ingredients[i])
+            {
+                ingredientId = i;
+                break;
+            }
+        }
+
         switch (ingredientId)
         {
             case (int)Food.Dough:
@@ -226,10 +237,8 @@ public class S_R_SkillManager : MonoBehaviour
                 break;
         }
         // Update the physical item
-        var ingredient = S_T_PlayerMovement.Instance.GrabLinkedItem(0);
         ingredient.visuals[0].sprite = heldItem.sprite;
         ingredient.visuals[1].sprite = heldItem.sprite;
-        cooked = true;
     }
 
 

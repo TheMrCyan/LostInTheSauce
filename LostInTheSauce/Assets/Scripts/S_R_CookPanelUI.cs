@@ -10,13 +10,16 @@ public class S_R_CookPanel : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (!S_T_PauseMenu.isPaused)
         {
-            m_RecipeBookUI.SetActive(true);
-        }
-        if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            m_RecipeBookUI.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                m_RecipeBookUI.SetActive(true);
+            }
+            if (Input.GetKeyUp(KeyCode.Tab))
+            {
+                m_RecipeBookUI.SetActive(false);
+            }
         }
     }
 }

@@ -68,12 +68,15 @@ public class S_T_PrepTable : MonoBehaviour
 
     private void Update()
     {
-        if (touchingPlayer && Input.GetKeyDown(KeyCode.Space))
+        if (!S_T_PauseMenu.isPaused)
         {
-            // First update recipe in case fridge contents were updated
-            UpdateRecipe(recipeToShow);
+            if (touchingPlayer && Input.GetKeyDown(KeyCode.Space))
+            {
+                // First update recipe in case fridge contents were updated
+                UpdateRecipe(recipeToShow);
 
-            prepTableUI.SetActive(!prepTableUI.activeSelf);
+                prepTableUI.SetActive(!prepTableUI.activeSelf);
+            }
         }
     }
 

@@ -42,52 +42,60 @@ public class S_T_PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Stores last move direction when player stops moving
-        float MoveX = Input.GetAxisRaw("Horizontal");
-        float MoveY = Input.GetAxisRaw("Vertical");
-
-        if ((MoveX == 0 && MoveY == 0) && (input.x != 0 || input.y != 0))
+        if (!S_T_PauseMenu.isPaused)
         {
-            lastMoveDirection = input;
-        }
+            // Stores last move direction when player stops moving
+            float MoveX = Input.GetAxisRaw("Horizontal");
+            float MoveY = Input.GetAxisRaw("Vertical");
 
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
-        input.Normalize(); // Makes diagonal movement the same speed as other movement
-
-        isMoving = input.x != 0 || input.y != 0;
-
-        anim.SetBool("isSprinting", false);
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            canSprint = true;
-        }
-
-        if (isMoving)
-        {
-
-            if (!useExternalSpeed)
+            if ((MoveX == 0 && MoveY == 0) && (input.x != 0 || input.y != 0))
             {
-                speed = 6f;
+                lastMoveDirection = input;
             }
-            else
+
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
+            input.Normalize(); // Makes diagonal movement the same speed as other movement
+
+            isMoving = input.x != 0 || input.y != 0;
+
+            anim.SetBool("isSprinting", false);
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                speed = externalSpeed;
+                canSprint = true;
             }
-           
-            if (Input.GetKey(KeyCode.LeftShift))
+
+            if (isMoving)
             {
-                if (canSprint)
+
+                if (!useExternalSpeed)
                 {
-                    // Sprinting
-                    if (stamina > 0f)
+                    speed = 6f;
+                }
+                else
+                {
+                    speed = externalSpeed;
+                }
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (canSprint)
                     {
-                        stamina -= 0.2f;
-                        speed = speed * speedMultiplier;
-                        anim.SetBool("isSprinting", true);
+                        // Sprinting
+                        if (stamina > 0f)
+                        {
+                            stamina -= 0.2f;
+                            speed = speed * speedMultiplier;
+                            anim.SetBool("isSprinting", true);
+                        }
+                        else canSprint = false;
                     }
-                    else canSprint = false;
+                    else
+                    {
+                        stamina += 0.1f;
+                        anim.SetBool("isSprinting", false);
+                    }
                 }
                 else
                 {
@@ -97,36 +105,31 @@ public class S_T_PlayerMovement : MonoBehaviour
             }
             else
             {
-                stamina += 0.1f;
+                stamina += 0.3f;
+                speed = 0f;
                 anim.SetBool("isSprinting", false);
             }
-        }
-        else
-        {
-            stamina += 0.15f;
-            speed = 0f;
-            anim.SetBool("isSprinting", false);
-        }
 
-        // Stamina stays in bounds
-        stamina = Mathf.Clamp(stamina, 0f, totalStamina);
+            // Stamina stays in bounds
+            stamina = Mathf.Clamp(stamina, 0f, totalStamina);
 
-        // Adjusts the stamina bar to represent current stamina
-        if (staminaBar != null)
-        {
-            staminaBar.transform.localScale = new Vector2(stamina / totalStamina, staminaBar.transform.localScale.y);
-        }
+            // Adjusts the stamina bar to represent current stamina
+            if (staminaBar != null)
+            {
+                staminaBar.transform.localScale = new Vector2(stamina / totalStamina, staminaBar.transform.localScale.y);
+            }
 
-        // Drop held item unless at the fridge or stove 
-        if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer && !S_T_Stove.Instance.touchingPlayer && !touchingFloorItem)
-        {
-            heldItem.sprite = null;
-        }
+            // Drop held item unless at the fridge or stove 
+            if (Input.GetKeyDown(KeyCode.Space) && heldItem.sprite != null && !S_T_Fridge.Instance.touchingPlayer && !S_T_Stove.Instance.touchingPlayer && !touchingFloorItem)
+            {
+                heldItem.sprite = null;
+            }
 
-        Animate();
-        if (input.x < 0 && facingRight || input.x > 0 && !facingRight)
-        {
-            Flip();
+            Animate();
+            if (input.x < 0 && facingRight || input.x > 0 && !facingRight)
+            {
+                Flip();
+            }
         }
     }
 
