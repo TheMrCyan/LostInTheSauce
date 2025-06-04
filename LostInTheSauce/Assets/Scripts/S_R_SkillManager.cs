@@ -47,7 +47,11 @@ public class S_R_SkillManager : MonoBehaviour
     public float graceTime;
     public SpriteRenderer heldItem;
     static public bool SkillUsed;
+    [SerializeField, Tooltip("Cooldown of skill 1 in seconds")] private float skill4Cooldown = 300f;
+    private float skill4LastUsedTime = -Mathf.Infinity;
 
+
+    
     private void Update()
     {
         if (!S_T_PauseMenu.isPaused)
@@ -57,13 +61,11 @@ public class S_R_SkillManager : MonoBehaviour
             {
                 TryUseSkill1();
             }
-
             // ===================================== SKILL 2 ======================================
             if (Input.GetKeyDown(KeyCode.Y))
             {
                 TryUseSkill2();
             }
-
             // ===================================== SKILL 3 ======================================
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -81,11 +83,10 @@ public class S_R_SkillManager : MonoBehaviour
             {
                 TryUseSkill3(4, 5f);
             }
-
             // ===================================== SKILL 4 ======================================
             if (Input.GetKeyDown(KeyCode.B))
             {
-                Skill4();
+                TryUseSkill4();
             }
         }
     }
@@ -278,6 +279,19 @@ public class S_R_SkillManager : MonoBehaviour
         else
         {
             Debug.Log("Skill 1 is on cooldown!");
+        }
+
+    }
+    private void TryUseSkill4()
+    {
+        if (Time.time - skill4LastUsedTime >= skill4Cooldown)
+        {
+            Skill1();
+            skill4LastUsedTime = Time.time;
+        }
+        else
+        {
+            Debug.Log("Skill 4 is on cooldown!");
         }
 
     }
