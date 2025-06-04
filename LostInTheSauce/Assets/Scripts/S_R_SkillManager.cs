@@ -51,7 +51,7 @@ public class S_R_SkillManager : MonoBehaviour
     private float skill4LastUsedTime = -Mathf.Infinity;
 
 
-    
+
     private void Update()
     {
         if (!S_T_PauseMenu.isPaused)
@@ -87,6 +87,14 @@ public class S_R_SkillManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.B))
             {
                 TryUseSkill4();
+            }
+            // ===================================== DEBUG BUTTON ======================================
+            if(Input.GetKeyDown(KeyCode.Keypad7))
+            {
+                Skill1Unlocked = true;
+                Skill2Unlocked = true;
+                Skill3Unlocked = true;
+                Skill4Unlocked = true;
             }
         }
     }
@@ -246,52 +254,65 @@ public class S_R_SkillManager : MonoBehaviour
 
     private void TryUseSkill3(int i, float range)
     {
-        if (Time.time - skill3LastUsedTime >= skill3Cooldown)
+        if (Skill3Unlocked)
         {
-            Skill3(i, range);
-        }
-        else
-        {
-            Debug.Log("Skill 3 is on cooldown!");
+            if (Time.time - skill3LastUsedTime >= skill3Cooldown)
+            {
+                Skill3(i, range);
+            }
+            else
+            {
+                Debug.Log("Skill 3 is on cooldown!");
+            }
         }
     }
     private void TryUseSkill2()
     {
-        if (Time.time - skill2LastUsedTime >= skill2Cooldown)
+        if (Skill2Unlocked)
         {
-            Skill2();
-            skill2LastUsedTime = Time.time;
+            if (Time.time - skill2LastUsedTime >= skill2Cooldown)
+            {
+                Skill2();
+                skill2LastUsedTime = Time.time;
 
-        }
-        else
-        {
-            Debug.Log("Skill 2 is on cooldown!");
+            }
+            else
+            {
+                Debug.Log("Skill 2 is on cooldown!");
+            }
         }
     }
 
     private void TryUseSkill1()
     {
-        if (Time.time - skill1LastUsedTime >= skill1Cooldown)
+        if (Skill1Unlocked)
         {
-            Skill1();
-            skill1LastUsedTime = Time.time;
+            if (Time.time - skill1LastUsedTime >= skill1Cooldown)
+            {
+                Skill1();
+                skill1LastUsedTime = Time.time;
+            }
+            else
+            {
+                Debug.Log("Skill 1 is on cooldown!");
+            }
         }
-        else
-        {
-            Debug.Log("Skill 1 is on cooldown!");
-        }
-
     }
     private void TryUseSkill4()
     {
-        if (Time.time - skill4LastUsedTime >= skill4Cooldown)
+        if (Skill4Unlocked)
         {
-            Skill1();
-            skill4LastUsedTime = Time.time;
-        }
-        else
-        {
-            Debug.Log("Skill 4 is on cooldown!");
+
+
+            if (Time.time - skill4LastUsedTime >= skill4Cooldown)
+            {
+                Skill1();
+                skill4LastUsedTime = Time.time;
+            }
+            else
+            {
+                Debug.Log("Skill 4 is on cooldown!");
+            }
         }
 
     }
