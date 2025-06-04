@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1845036370787226291}
   - component: {fileID: 5633932793778414382}
-  - component: {fileID: 7157399427972563272}
+  - component: {fileID: 1691176722797095327}
   - component: {fileID: 287184476980610240}
   m_Layer: 0
   m_Name: Ingredient
@@ -135,11 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aaa8ecf41c4c2f4c9d2e6a29783c844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  held: 0
   id: 0
   visuals:
   - {fileID: 0}
---- !u!58 &7157399427972563272
-CircleCollider2D:
+--- !u!61 &1691176722797095327
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -173,7 +174,17 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!50 &287184476980610240
 Rigidbody2D:
   serializedVersion: 5

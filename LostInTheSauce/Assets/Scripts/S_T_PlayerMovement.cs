@@ -6,7 +6,7 @@ public class S_T_PlayerMovement : MonoBehaviour
 {
     public static S_T_PlayerMovement Instance { get; private set; }
 
-    private bool canSprint;
+    private bool canSprint = true;
     private bool isMoving;
     [System.NonSerialized] public bool touchingFloorItem;
     [System.NonSerialized] public bool touchingTrash;
@@ -17,6 +17,7 @@ public class S_T_PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject staminaBar;
     public SpriteRenderer heldItem;
+    public float speedMultiplier = 2f;
 
     Animator anim;
     private Vector2 lastMoveDirection;
@@ -71,7 +72,7 @@ public class S_T_PlayerMovement : MonoBehaviour
                     if (stamina > 0f)
                     {
                         stamina -= 0.2f;
-                        speed = 12f;
+                        speed = speed * speedMultiplier;
                         anim.SetBool("isSprinting", true);
                     }
                     else canSprint = false;
@@ -143,7 +144,15 @@ public class S_T_PlayerMovement : MonoBehaviour
         var item = Physics2D.OverlapCircle(new Vector2(1000 + id * 2, 0), 1);
         return item.gameObject.GetComponent<S_T_ItemGen>();
     }
+    public float GetSpeed()
+    {
+        return speed;
+    }
 
+    public void SetSpeed(float NewSpeed)
+    {
+        speed = NewSpeed;
+    }
     private void Animate()
     {
         anim.SetFloat("MoveX", input.x);
