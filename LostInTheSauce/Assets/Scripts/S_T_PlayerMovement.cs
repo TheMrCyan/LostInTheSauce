@@ -7,25 +7,24 @@ public class S_T_PlayerMovement : MonoBehaviour
     public static S_T_PlayerMovement Instance { get; private set; }
 
     private bool canSprint = true;
-    private bool isMoving;
+    public bool isMoving;
     [System.NonSerialized] public bool touchingFloorItem;
     [System.NonSerialized] public bool touchingTrash;
     private float speed;
     private float stamina;
     public float totalStamina;
     private Vector2 input;
-    private Rigidbody2D rb;
+    public static Rigidbody2D rb;
     public GameObject staminaBar;
     public SpriteRenderer heldItem;
     public float speedMultiplier = 2f;
 
     Animator anim;
-    private Vector2 lastMoveDirection;
+    public static Vector2 lastMoveDirection;
     private bool facingRight = true;
 
     private bool useExternalSpeed = false;
     private float externalSpeed;
-
 
     void Awake()
     {
@@ -37,7 +36,6 @@ public class S_T_PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
-
     }
 
     void Update()

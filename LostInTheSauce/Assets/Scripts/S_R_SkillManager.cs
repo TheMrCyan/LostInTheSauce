@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -33,24 +34,26 @@ public class S_R_SkillManager : MonoBehaviour
     private float skill2LastUsedTime = -Mathf.Infinity;
 
     //skill 3
-    private Vector3 OldPos;
-    private Vector3 NewPos;
+    private float width;
+    private float height;
+    private Vector2 OldPos;
+    private Vector2 NewPos;
     Collider2D hit;
     [SerializeField, Tooltip("Cooldown of skill 3 in seconds")] private float skill3Cooldown = 25f;
     private float skill3LastUsedTime = -Mathf.Infinity;
 
     //skill 4
     private int ingredientId;
-    private float cookingTime;
-    private float graceTimer;
-    public float perfectDoneTime;
-    public float graceTime;
     public SpriteRenderer heldItem;
     static public bool SkillUsed;
     [SerializeField, Tooltip("Cooldown of skill 1 in seconds")] private float skill4Cooldown = 300f;
     private float skill4LastUsedTime = -Mathf.Infinity;
 
-
+    private void Start()
+    {
+        width = S_T_MazeGenerator.Instance.width * S_T_MazeGenerator.Instance.scale;
+        height = S_T_MazeGenerator.Instance.height * S_T_MazeGenerator.Instance.scale;
+    }
 
     private void Update()
     {
@@ -67,21 +70,9 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill2();
             }
             // ===================================== SKILL 3 ======================================
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.X))
             {
-                TryUseSkill3(1, 5f);
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                TryUseSkill3(2, 5f);
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                TryUseSkill3(3, 5f);
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                TryUseSkill3(4, 5f);
+                TryUseSkill3(5f);
             }
             // ===================================== SKILL 4 ======================================
             if (Input.GetKeyDown(KeyCode.B))
@@ -89,7 +80,7 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill4();
             }
             // ===================================== DEBUG BUTTON ======================================
-            if(Input.GetKeyDown(KeyCode.Keypad7))
+            if (Input.GetKeyDown(KeyCode.Keypad7))
             {
                 Skill1Unlocked = true;
                 Skill2Unlocked = true;
@@ -131,80 +122,26 @@ public class S_R_SkillManager : MonoBehaviour
 
 
     [Tooltip("Spawn one random item")] //teleport forward 5 units
-    private void Skill3(int i, float range)
+    private void Skill3(float range)
     {
-
         OldPos = m_Player.transform.position;
-
-        switch (i)
+        if (!S_T_PlayerMovement.Instance.isMoving)
         {
-            case 1:
-                OldPos = m_Player.transform.position;
-                NewPos = OldPos + m_Player.transform.up * range;
-                hit = Physics2D.OverlapPoint(NewPos);
+            NewPos = OldPos + S_T_PlayerMovement.lastMoveDirection * range;
+            hit = Physics2D.OverlapPoint(NewPos);
+            if (!(NewPos.x < 0 || NewPos.y < 0 || NewPos.x > width || NewPos.y > height))
+            {
                 if (hit != null && hit.CompareTag("Floor"))
                 {
-                    m_Player.transform.position = NewPos;
                     m_Player.transform.position = NewPos;
                     range = 5;
                     skill3LastUsedTime = Time.time;
                 }
                 else
                 {
-                    Skill3(i, range + 0.1f);
+                    Skill3(range + 0.1f);
                 }
-
-                break;
-            case 2:
-                OldPos = m_Player.transform.position;
-                NewPos = OldPos + m_Player.transform.up * -range;
-                hit = Physics2D.OverlapPoint(NewPos);
-                if (hit != null && hit.CompareTag("Floor"))
-                {
-                    m_Player.transform.position = NewPos;
-                    m_Player.transform.position = NewPos;
-                    range = 5;
-                    skill3LastUsedTime = Time.time;
-                }
-                else
-                {
-                    Skill3(i, range + 0.1f);
-                }
-                break;
-            case 3:
-                OldPos = m_Player.transform.position;
-                NewPos = OldPos + Vector3.left * range;
-                hit = Physics2D.OverlapPoint(NewPos);
-                if (hit != null && hit.CompareTag("Floor"))
-                {
-                    m_Player.transform.position = NewPos;
-                    m_Player.transform.position = NewPos;
-                    range = 5;
-                    skill3LastUsedTime = Time.time;
-                }
-                else
-                {
-                    Skill3(i, range + 0.1f);
-                }
-                break;
-            case 4:
-                OldPos = m_Player.transform.position;
-                NewPos = OldPos + Vector3.right * range;
-                hit = Physics2D.OverlapPoint(NewPos);
-                if (hit != null && hit.CompareTag("Floor"))
-                {
-                    m_Player.transform.position = NewPos;
-                    m_Player.transform.position = NewPos;
-                    range = 5;
-                    skill3LastUsedTime = Time.time;
-                }
-                else if (range < 6)
-                {
-
-                    Skill3(i, range + 0.1f);
-                }
-                break;
-
+            }
         }
     }
 
@@ -252,13 +189,13 @@ public class S_R_SkillManager : MonoBehaviour
 
 
 
-    private void TryUseSkill3(int i, float range)
+    private void TryUseSkill3(float range)
     {
         if (Skill3Unlocked)
         {
             if (Time.time - skill3LastUsedTime >= skill3Cooldown)
             {
-                Skill3(i, range);
+                Skill3(range);
             }
             else
             {
