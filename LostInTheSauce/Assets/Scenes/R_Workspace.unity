@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 33921517}
   - component: {fileID: 33921521}
   - component: {fileID: 33921522}
+  - component: {fileID: 33921523}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -247,6 +248,7 @@ MonoBehaviour:
   totalStamina: 100
   staminaBar: {fileID: 318125596}
   heldItem: {fileID: 818152685}
+  speedMultiplier: 2
 --- !u!61 &33921521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -306,7 +308,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 33921515}
+  ingredient: {fileID: 5633932793778414382, guid: 7ef818f27e86d6c4db6199651dc7905d, type: 3}
+  ingredientsToSpawn: 4
+  ingredients:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skill3Cooldown: 3
+--- !u!114 &33921523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33921515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aaa8ecf41c4c2f4c9d2e6a29783c844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  held: 0
+  id: 0
+  visuals: []
 --- !u!1 &61389452
 GameObject:
   m_ObjectHideFlags: 0

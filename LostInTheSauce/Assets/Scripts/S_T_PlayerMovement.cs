@@ -23,6 +23,9 @@ public class S_T_PlayerMovement : MonoBehaviour
     private Vector2 lastMoveDirection;
     private bool facingRight = true;
 
+    private bool useExternalSpeed = false;
+    private float externalSpeed;
+
 
     void Awake()
     {
@@ -63,7 +66,16 @@ public class S_T_PlayerMovement : MonoBehaviour
 
         if (isMoving)
         {
-            speed = 6f;
+
+            if (!useExternalSpeed)
+            {
+                speed = 6f;
+            }
+            else
+            {
+                speed = externalSpeed;
+            }
+           
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 if (canSprint)
@@ -142,16 +154,32 @@ public class S_T_PlayerMovement : MonoBehaviour
     public S_T_ItemGen GrabLinkedItem(int id)
     {
         var item = Physics2D.OverlapCircle(new Vector2(1000 + id * 2, 0), 1);
-        return item.gameObject.GetComponent<S_T_ItemGen>();
+        if (item == null)
+        {
+            Debug.LogError($"No item found with ID {id}");
+            return null;
+        }
+
+        // Add component check
+        var itemGen = item.GetComponent<S_T_ItemGen>();
+        if (itemGen == null)
+        {
+            Debug.LogError($"Item at ID {id} missing S_T_ItemGen component");
+            return null;
+
+        }
+        return itemGen;
     }
-    public float GetSpeed()
+    public void ResetSpeed()
     {
-        return speed;
+        useExternalSpeed = false;  
+       
     }
 
     public void SetSpeed(float NewSpeed)
     {
-        speed = NewSpeed;
+        externalSpeed = NewSpeed;
+        useExternalSpeed = true;
     }
     private void Animate()
     {
