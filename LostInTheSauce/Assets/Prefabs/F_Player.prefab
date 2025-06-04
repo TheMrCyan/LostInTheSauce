@@ -634,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6232acdd86a411e4bb0ea104f2e03e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
   totalStamina: 200
   staminaBar: {fileID: 0}
   heldItem: {fileID: 1528554108850363871}
@@ -798,6 +799,6 @@ MonoBehaviour:
   itemManager: {fileID: 4138330699274324195, guid: 1e7a5edaf573c5f448723dcfbe6eedb2, type: 3}
   visuals: []
   skill2Cooldown: 120
-  skill3Cooldown: 1
+  skill3Cooldown: 30
   heldItem: {fileID: 1528554108850363871}
   skill4Cooldown: 300

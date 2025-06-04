@@ -60,12 +60,12 @@ public class S_R_SkillManager : MonoBehaviour
         if (!S_T_PauseMenu.isPaused)
         {
             // ===================================== SKILL 1 ======================================
-            if (Input.GetKeyDown(KeyCode.V))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 TryUseSkill1();
             }
             // ===================================== SKILL 2 ======================================
-            if (Input.GetKeyDown(KeyCode.Y))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 TryUseSkill2();
             }
@@ -75,7 +75,7 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill3(5f);
             }
             // ===================================== SKILL 4 ======================================
-            if (Input.GetKeyDown(KeyCode.B))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 TryUseSkill4();
             }
@@ -125,8 +125,6 @@ public class S_R_SkillManager : MonoBehaviour
     private void Skill3(float range)
     {
         OldPos = m_Player.transform.position;
-        if (!S_T_PlayerMovement.Instance.isMoving)
-        {
             NewPos = OldPos + S_T_PlayerMovement.lastMoveDirection * range;
             hit = Physics2D.OverlapPoint(NewPos);
             if (!(NewPos.x < 0 || NewPos.y < 0 || NewPos.x > width || NewPos.y > height))
@@ -141,7 +139,6 @@ public class S_R_SkillManager : MonoBehaviour
                 {
                     Skill3(range + 0.1f);
                 }
-            }
         }
     }
 
