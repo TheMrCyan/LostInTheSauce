@@ -635,6 +635,22 @@ PrefabInstance:
       propertyPath: fridgeUI
       value: 
       objectReference: {fileID: 486468399}
+    - target: {fileID: 3204698130302490503, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204698130302490503, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204698130302490503, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3204698130302490503, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4327298361247149060, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
       propertyPath: m_Name
       value: Kitchen

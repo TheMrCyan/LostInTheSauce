@@ -409,6 +409,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SM_T_idle_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 117
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21631290c58ebfb49b33d4d9f4610e88
+      internalID: -1931103468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -423,6 +445,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      SM_T_idle_0: -1931103468
       idle_0: 8793639957104055765
       idle_1: 6084859605308855041
       idle_10: -1480364998338425778

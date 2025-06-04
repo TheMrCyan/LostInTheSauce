@@ -409,6 +409,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf5f1614ed3f670449ecb384f5414acd, type: 3}
+--- !u!114 &1704609422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1398503337369393849, guid: bf5f1614ed3f670449ecb384f5414acd, type: 3}
+  m_PrefabInstance: {fileID: 1704609421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1704609423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7370145591129302355, guid: bf5f1614ed3f670449ecb384f5414acd, type: 3}
+  m_PrefabInstance: {fileID: 1704609421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1747365438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -460,6 +476,22 @@ PrefabInstance:
     - target: {fileID: 4327298361247149060, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
       propertyPath: m_Name
       value: Kitchen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: prepTableUI
+      value: 
+      objectReference: {fileID: 1704609423}
+    - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: recipeTitle
+      value: 
+      objectReference: {fileID: 1704609422}
+    - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: recipesToMake
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: availableRecipes
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

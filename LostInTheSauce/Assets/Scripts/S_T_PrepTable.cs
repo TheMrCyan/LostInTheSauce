@@ -10,7 +10,7 @@ public class S_T_PrepTable : MonoBehaviour
 
     private bool touchingPlayer;
     private int finishedRecipes;
-    private List<Recipe> recipeBook;
+    public List<Recipe> recipeBook;
     private int recipeToShow;
     public int recipesToMake;
     public int availableRecipes;
