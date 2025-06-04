@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 425859494}
   - component: {fileID: 425859493}
   m_Layer: 5
-  m_Name: RestartDayButton
+  m_Name: NextDayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
