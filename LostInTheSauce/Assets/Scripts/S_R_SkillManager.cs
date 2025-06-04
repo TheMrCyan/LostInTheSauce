@@ -89,7 +89,7 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill4();
             }
             // ===================================== DEBUG BUTTON ======================================
-            if(Input.GetKeyDown(KeyCode.KeypadEquals))
+            if(Input.GetKeyDown(KeyCode.Keypad7))
             {
                 Skill1Unlocked = true;
                 Skill2Unlocked = true;
