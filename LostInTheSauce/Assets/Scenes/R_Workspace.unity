@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 33921517}
   - component: {fileID: 33921521}
   - component: {fileID: 33921522}
-  - component: {fileID: 33921523}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -308,34 +307,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 33921515}
+  m_MovementSpeed: {fileID: 33921519}
+  skill1Cooldown: 7
   ingredient: {fileID: 5633932793778414382, guid: 7ef818f27e86d6c4db6199651dc7905d, type: 3}
   ingredientsToSpawn: 4
   ingredients:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  skill3Cooldown: 3
---- !u!114 &33921523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33921515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aaa8ecf41c4c2f4c9d2e6a29783c844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  held: 0
-  id: 0
+  - {fileID: 1014935394985381460, guid: 9ad0541e606bbf941a94357607b86095, type: 3}
+  - {fileID: 6234230797252083378, guid: 6d0f303f349c63046a5fa0360a6a3f6c, type: 3}
+  - {fileID: 8362935752562957185, guid: 6d42e8be363533946959ce9e052ff5de, type: 3}
+  - {fileID: -2960894188117887773, guid: 95de301365ef8164e8a091c495ce09fc, type: 3}
+  - {fileID: -5455813729198701056, guid: 530f8ecaaa7931240b77f5a3d6c671c9, type: 3}
+  - {fileID: -5761526868329517941, guid: fa53829d111d3b14f81099b20d7e8629, type: 3}
+  - {fileID: 4878994200698858949, guid: 0f3b4b12608929d47a4aa12320cef16b, type: 3}
+  - {fileID: -3257665946655617271, guid: 138bf1e12c5b22542aba423530a4ab4c, type: 3}
+  - {fileID: -2307211836190750150, guid: 775f881826508344eacd8bab700da9d8, type: 3}
+  - {fileID: -5239369220844243736, guid: c47c05b94370334448774ccdbbf68111, type: 3}
+  - {fileID: -675944041728567503, guid: 26d1997b964e75a4ba9256c699fbd77a, type: 3}
+  - {fileID: 575700836448321183, guid: a2aa54bcb6c1be4499f62c9ed7d369d3, type: 3}
+  - {fileID: -4902172950862851429, guid: e1c467bc59b40424f82df71b26919c4a, type: 3}
+  - {fileID: 4100263627039994691, guid: dcb8f5b06b7a2b341a112a00134910bb, type: 3}
+  - {fileID: -1462414006056811437, guid: 9ca740ab4b43fa8478ce89177ccd7c3f, type: 3}
+  - {fileID: 4652689589474809121, guid: a867db93d2ccb0f43a357b19292a0f8b, type: 3}
+  - {fileID: -7028895003399733551, guid: 98622607a11fa8f4aae07be3a90cebdb, type: 3}
+  - {fileID: 5387474841798882390, guid: fb0a0df67cfff1f4581d53e6de691f63, type: 3}
+  - {fileID: 7808120628508971133, guid: 8a01fa5c45bcb7643809618bbc8e13cc, type: 3}
+  - {fileID: 2784198642922196479, guid: e1cf25f7de45d35458f00dd51ac97711, type: 3}
+  itemManager: {fileID: 1750069289}
   visuals: []
+  skill2Cooldown: 120
+  skill3Cooldown: 3
+  perfectDoneTime: 0
+  graceTime: 0
+  heldItem: {fileID: 818152685}
 --- !u!1 &61389452
 GameObject:
   m_ObjectHideFlags: 0
