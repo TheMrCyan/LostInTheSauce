@@ -6304,7 +6304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1102404141, guid: e9c7909d2f17c1e4f9eda4c008a6af7f, type: 3}
+  m_Sprite: {fileID: -548853764, guid: e9c7909d2f17c1e4f9eda4c008a6af7f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8276,7 +8276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -548853764, guid: e9c7909d2f17c1e4f9eda4c008a6af7f, type: 3}
+  m_Sprite: {fileID: 1102404141, guid: e9c7909d2f17c1e4f9eda4c008a6af7f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8818,6 +8818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e95f7d3c480a442b6a278db46f60da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inTutorial: 0
   timerValue: {fileID: 1720936597959892116}
   timerImage: {fileID: 4296356251031395466}
   timer: {fileID: 4615588189818093499}
