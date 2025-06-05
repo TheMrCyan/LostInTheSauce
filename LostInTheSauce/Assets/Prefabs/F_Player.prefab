@@ -798,7 +798,7 @@ MonoBehaviour:
   - {fileID: 2784198642922196479, guid: e1cf25f7de45d35458f00dd51ac97711, type: 3}
   itemManager: {fileID: 4138330699274324195, guid: 1e7a5edaf573c5f448723dcfbe6eedb2, type: 3}
   visuals: []
-  skill2Cooldown: 120
+  skill2Cooldown: 60
   skill3Cooldown: 30
   heldItem: {fileID: 1528554108850363871}
-  skill4Cooldown: 300
+  skill4Cooldown: 120

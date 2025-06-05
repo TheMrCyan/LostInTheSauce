@@ -46,7 +46,7 @@ public class S_R_SkillManager : MonoBehaviour
     private int ingredientId;
     public SpriteRenderer heldItem;
     static public bool SkillUsed;
-    [SerializeField, Tooltip("Cooldown of skill 1 in seconds")] private float skill4Cooldown = 300f;
+    [SerializeField, Tooltip("Cooldown of skill 4 in seconds")] private float skill4Cooldown = 300f;
     private float skill4LastUsedTime = -Mathf.Infinity;
 
     private void Start()
@@ -162,21 +162,27 @@ public class S_R_SkillManager : MonoBehaviour
         {
             case (int)Food.Dough:
                 heldItem.sprite = S_T_ItemManager.Instance.ingredients[(int)Food.Bread];
+                skill4LastUsedTime = Time.time;
                 break;
             case (int)Food.Fish:
                 heldItem.sprite = S_T_ItemManager.Instance.ingredients[(int)Food.CookedFish];
+                skill4LastUsedTime = Time.time;
                 break;
             case (int)Food.Meat:
                 heldItem.sprite = S_T_ItemManager.Instance.ingredients[(int)Food.CookedMeat];
+                skill4LastUsedTime = Time.time;
                 break;
             case (int)Food.Egg:
                 heldItem.sprite = S_T_ItemManager.Instance.ingredients[(int)Food.CookedEgg];
+                skill4LastUsedTime = Time.time;
                 break;
             case (int)Food.Cocoa:
                 heldItem.sprite = S_T_ItemManager.Instance.ingredients[(int)Food.Chocolate];
+                skill4LastUsedTime = Time.time;
                 break;
             default:
-                heldItem.sprite = null;
+                skill4LastUsedTime = -Mathf.Infinity;
+                Debug.Log("Failed to use skill");
                 break;
         }
         // Update the physical item
@@ -236,12 +242,9 @@ public class S_R_SkillManager : MonoBehaviour
     {
         if (Skill4Unlocked)
         {
-
-
             if (Time.time - skill4LastUsedTime >= skill4Cooldown)
             {
-                Skill1();
-                skill4LastUsedTime = Time.time;
+                Skill4();
             }
             else
             {

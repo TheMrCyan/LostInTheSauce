@@ -3,13 +3,20 @@ using TMPro; // Import this for TextMeshPro
 using UnityEngine.SceneManagement;
 
 
-public class SimpleTimer : MonoBehaviour
+public class S_R_ShiftTimer : MonoBehaviour
 {
+    public static S_R_ShiftTimer Instance { get; private set; }
+
     [SerializeField][Tooltip("The Duration of the game")] private float ShiftTime = 60.0f;
     [SerializeField] private TMP_Text timerText;
 
     private bool timerEndedFlag = false;
     static public bool HasStarted = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
