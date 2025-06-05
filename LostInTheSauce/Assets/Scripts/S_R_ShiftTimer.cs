@@ -7,11 +7,11 @@ public class S_R_ShiftTimer : MonoBehaviour
 {
     public static S_R_ShiftTimer Instance { get; private set; }
 
-    [SerializeField][Tooltip("The Duration of the game")] private float ShiftTime = 60.0f;
+    [SerializeField][Tooltip("The Duration of the game")] public float shiftTime = 60.0f;
     [SerializeField] private TMP_Text timerText;
 
     private bool timerEndedFlag = false;
-    static public bool HasStarted = true;
+    static public bool hasStarted = true;
 
     private void Awake()
     {
@@ -20,20 +20,20 @@ public class S_R_ShiftTimer : MonoBehaviour
 
     private void Update()
     {
-        if (HasStarted)
+        if (hasStarted)
         {
             if (timerEndedFlag) return;
 
-            ShiftTime -= Time.deltaTime;
-            ShiftTime = Mathf.Max(ShiftTime, 0); // Prevents negative time
+            shiftTime -= Time.deltaTime;
+            shiftTime = Mathf.Max(shiftTime, 0); // Prevents negative time
 
             // Format time as MM:SS
-            int minutes = Mathf.FloorToInt(ShiftTime / 60f);
-            int seconds = Mathf.FloorToInt(ShiftTime % 60f);
+            int minutes = Mathf.FloorToInt(shiftTime / 60f);
+            int seconds = Mathf.FloorToInt(shiftTime % 60f);
             string timer = string.Format("{0:00}:{1:00}", minutes, seconds);
             timerText.text = timer;
 
-            if (ShiftTime <= 0.0f)
+            if (shiftTime <= 0.0f)
             {
                 timerEndedFlag = true;
                 TimerEnded();
@@ -44,7 +44,7 @@ public class S_R_ShiftTimer : MonoBehaviour
     }
     public void UnderstoodButton()
     {
-        HasStarted = true;
+        hasStarted = true;
     }
    private void TimerEnded()
     {

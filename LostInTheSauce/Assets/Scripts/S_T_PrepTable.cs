@@ -18,6 +18,7 @@ public class S_T_PrepTable : MonoBehaviour
     public TextMeshProUGUI recipeTitle;
     public List<Image> recipeBookIngredients;
     public List<int> ingredientsToRemove;
+    [SerializeField] private float extraTimePerIngredient = 20f;
 
     private void Awake()
     {
@@ -171,6 +172,7 @@ public class S_T_PrepTable : MonoBehaviour
                 S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1).RandomizeLocation();
                 S_T_Fridge.Instance.fridgeContents[id] = -1;
                 S_T_Fridge.Instance.fridgeVisuals[id].sprite = null;
+                S_R_ShiftTimer.Instance.shiftTime += extraTimePerIngredient;
             }
             // Close menu
             prepTableUI.SetActive(false);

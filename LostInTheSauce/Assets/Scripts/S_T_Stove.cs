@@ -5,10 +5,10 @@ public class S_T_Stove : MonoBehaviour
     public static S_T_Stove Instance { get; private set; }
 
     [System.NonSerialized] public bool touchingPlayer;
-    private bool cooked;
+    public bool cooked;
     private int ingredientId;
-    private float cookingTime;
-    private float graceTimer;
+    public float cookingTime;
+    public float graceTimer;
     public float perfectDoneTime;
     public float graceTime;
     public SpriteRenderer heldItem;
