@@ -49,7 +49,6 @@ public class S_T_PrepTable : MonoBehaviour
         recipeBook.Add(new Recipe("Chocolate Cake", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Chocolate }));
         recipeBook.Add(new Recipe("Salad", new int[] { (int)Food.Tomato, (int)Food.Lettuce, (int)Food.Cucumber }));
         recipeBook.Add(new Recipe("Sushi", new int[] { (int)Food.Fish, (int)Food.Rice }));
-        recipeBook.Add(new Recipe("Fish & Chips", new int[] { (int)Food.Potato, (int)Food.Oil, (int)Food.CookedFish }));
         recipeBook.Add(new Recipe("Dumplings", new int[] { (int)Food.Dough, (int)Food.Meat, (int)Food.Cheese }));
         recipeBook.Add(new Recipe("Bacon & Eggs", new int[] { (int)Food.CookedMeat, (int)Food.CookedEgg }));
         recipeBook.Add(new Recipe("Spaghetti", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Garlic }));
