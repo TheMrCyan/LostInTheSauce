@@ -55,17 +55,33 @@ public class S_T_SkillTimers : MonoBehaviour
         {
             timer1.SetActive(true);
         }
+        else
+        {
+            timer1.SetActive(false);
+        }
         if (S_R_SkillManager.Instance.Skill2Unlocked)
         {
             timer2.SetActive(true);
+        }
+        else
+        {
+            timer2.SetActive(false);
         }
         if (S_R_SkillManager.Instance.Skill3Unlocked)
         {
             timer3.SetActive(true);
         }
+        else
+        {
+            timer3.SetActive(false);
+        }
         if (S_R_SkillManager.Instance.Skill4Unlocked)
         {
             timer4.SetActive(true);
+        }
+        else
+        {
+            timer4.SetActive(false);
         }
         time1 = Time.time - S_R_SkillManager.Instance.skill1LastUsedTime;
         time1 = Mathf.Clamp(time1, 0, max1);

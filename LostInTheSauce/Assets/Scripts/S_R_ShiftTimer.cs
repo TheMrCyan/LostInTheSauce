@@ -49,9 +49,13 @@ public class S_R_ShiftTimer : MonoBehaviour
     {
         hasStarted = true;
     }
-   private void TimerEnded()
+    private void TimerEnded()
     {
         Debug.Log("Game Over!");
+        S_T_SkillUnlock.Skill1Unlocked = false;
+        S_T_SkillUnlock.Skill2Unlocked = false;
+        S_T_SkillUnlock.Skill3Unlocked = false;
+        S_T_SkillUnlock.Skill4Unlocked = false;
         SceneManager.LoadScene("GameOverScene"); //loads the GameOver scene
     }
 }
