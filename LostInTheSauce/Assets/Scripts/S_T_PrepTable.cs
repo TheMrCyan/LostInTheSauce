@@ -18,7 +18,7 @@ public class S_T_PrepTable : MonoBehaviour
     public TextMeshProUGUI recipeTitle;
     public List<Image> recipeBookIngredients;
     public List<int> ingredientsToRemove;
-    [SerializeField] private float extraTimePerIngredient = 20f;
+    [SerializeField] private float extraTimePerIngredient = 30f;
 
     private void Awake()
     {
@@ -50,7 +50,6 @@ public class S_T_PrepTable : MonoBehaviour
         recipeBook.Add(new Recipe("Fish & Chips", new int[] { (int)Food.Potato, (int)Food.Oil, (int)Food.CookedFish }));
         recipeBook.Add(new Recipe("Dumplings", new int[] { (int)Food.Dough, (int)Food.Meat, (int)Food.Cheese }));
         recipeBook.Add(new Recipe("Bacon & Eggs", new int[] { (int)Food.CookedMeat, (int)Food.CookedEgg }));
-        recipeBook.Add(new Recipe("Cookies", new int[] { (int)Food.Dough, (int)Food.Sugar, (int)Food.Chocolate }));
         recipeBook.Add(new Recipe("Spaghetti", new int[] { (int)Food.Dough, (int)Food.Tomato, (int)Food.Garlic }));
         recipeBook.Add(new Recipe("Sundae", new int[] { (int)Food.Milk, (int)Food.Sugar }));
         recipeBook.Add(new Recipe("Sandwich", new int[] { (int)Food.Bread, (int)Food.Cucumber, (int)Food.Tomato, (int)Food.Cheese, (int)Food.Meat }));

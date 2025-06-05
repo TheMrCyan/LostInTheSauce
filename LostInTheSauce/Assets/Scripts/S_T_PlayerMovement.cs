@@ -157,7 +157,6 @@ public class S_T_PlayerMovement : MonoBehaviour
         var item = Physics2D.OverlapCircle(new Vector2(1000 + id * 2, 0), 1);
         if (item == null)
         {
-            Debug.LogError($"No item found with ID {id}");
             return null;
         }
 
@@ -165,7 +164,6 @@ public class S_T_PlayerMovement : MonoBehaviour
         var itemGen = item.GetComponent<S_T_ItemGen>();
         if (itemGen == null)
         {
-            Debug.LogError($"Item at ID {id} missing S_T_ItemGen component");
             return null;
 
         }

@@ -9,7 +9,7 @@ public class S_T_StoveTimer : MonoBehaviour
     private bool useGraceTime;
     private float time;
     public TMP_Text timerValue;
-    public Image timerImage;
+    public UnityEngine.UI.Image timerImage;
     public GameObject timer;
     private float max;
 
@@ -34,11 +34,6 @@ public class S_T_StoveTimer : MonoBehaviour
             }
             timerValue.text = "" + (int)time;
             timerImage.fillAmount = time / max;
-
-            if (time < 0)
-            {
-                time = 0;
-            }
 
             if (S_T_Stove.Instance.cooked && useGraceTime == false)
             {

@@ -56,7 +56,7 @@ public class S_R_NextDay : MonoBehaviour
     }
     public void Skill1Unlock()
     {
-        S_R_SkillManager.Skill1Unlocked = true;
+        S_T_SkillUnlock.Skill1Unlocked = true;
         m_firstButtons.SetActive(true);
         m_secondButtons.SetActive(false);
         string sceneName = "Day" + m_DayCount;
@@ -68,7 +68,7 @@ public class S_R_NextDay : MonoBehaviour
     }
     public void Skill2Unlock()
     {
-        S_R_SkillManager.Skill2Unlocked = true;
+        S_T_SkillUnlock.Skill2Unlocked = true;
         m_firstButtons.SetActive(true);
         m_secondButtons.SetActive(false);
         string sceneName = "Day" + m_DayCount;
@@ -79,7 +79,7 @@ public class S_R_NextDay : MonoBehaviour
     }
     public void Skill3Unlock()
     {
-        S_R_SkillManager.Skill3Unlocked = true;
+        S_T_SkillUnlock.Skill3Unlocked = true;
         m_firstButtons.SetActive(true);
         m_secondButtons.SetActive(false);
         string sceneName = "Day" + m_DayCount;
@@ -90,7 +90,7 @@ public class S_R_NextDay : MonoBehaviour
     }
     public void Skill4Unlock()
     {
-        S_R_SkillManager.Skill4Unlocked = true;
+        S_T_SkillUnlock.Skill4Unlocked = true;
         m_firstButtons.SetActive(true);
         m_secondButtons.SetActive(false);
         string sceneName = "Day" + m_DayCount;

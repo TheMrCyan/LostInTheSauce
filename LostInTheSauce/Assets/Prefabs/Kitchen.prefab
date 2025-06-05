@@ -441,6 +441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe83c1dc1ec04e4e85a038365433d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooked: 0
+  cookingTime: 0
+  graceTimer: 0
   perfectDoneTime: 10
   graceTime: 10
   heldItem: {fileID: 3471529968102384638}
@@ -1194,6 +1197,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ingredientsToRemove: 
+  extraTimePerIngredient: 20
 --- !u!1 &8700578923749022006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1612,7 @@ Transform:
   m_GameObject: {fileID: 9219396475769602993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -0.5, z: 0}
+  m_LocalPosition: {x: -3, y: -1.74, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

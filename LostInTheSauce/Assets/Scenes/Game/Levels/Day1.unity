@@ -664,6 +664,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 485212248}
     - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
+      propertyPath: extraTimePerIngredient
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911085166061083561, guid: 92614830fbc7fd7478b9ce5c7e51072a, type: 3}
       propertyPath: 'recipeBookIngredients.Array.data[0]'
       value: 
       objectReference: {fileID: 1539209930}
