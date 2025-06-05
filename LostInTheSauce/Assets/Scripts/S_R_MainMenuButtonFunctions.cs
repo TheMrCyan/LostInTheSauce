@@ -7,7 +7,7 @@ public class S_R_MainMenuButtonFunctions : MonoBehaviour
     int m_moveDistance = 45;
     public void PlayButton()
     {
-        SceneManager.LoadScene("Day1");
+        SceneManager.LoadScene("T_Tutorial");
     }
     public void InstructionsButton()
     {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,8 +9,9 @@ public class S_T_PrepTable : MonoBehaviour
 {
     public static S_T_PrepTable Instance { get; private set; }
 
+    public bool isTutorial = false;
     private bool touchingPlayer;
-    private int finishedRecipes;
+    public int finishedRecipes;
     public List<Recipe> recipeBook;
     private int recipeToShow;
     public int recipesToMake;
@@ -168,7 +170,14 @@ public class S_T_PrepTable : MonoBehaviour
             // Remove ingredients from fridge
             foreach (int id in ingredientsToRemove)
             {
-                S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1).RandomizeLocation();
+                if (!isTutorial)
+                {
+                    S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1).RandomizeLocation();
+                }
+                else
+                {
+                    Destroy(S_T_PlayerMovement.Instance.GrabLinkedItem(id + 1));
+                }
                 S_T_Fridge.Instance.fridgeContents[id] = -1;
                 S_T_Fridge.Instance.fridgeVisuals[id].sprite = null;
                 S_R_ShiftTimer.Instance.shiftTime += extraTimePerIngredient;
@@ -178,16 +187,19 @@ public class S_T_PrepTable : MonoBehaviour
 
             // Finish day if enough recipes have been made
             ++finishedRecipes;
-            if (finishedRecipes >= recipesToMake)
+            if (!isTutorial)
             {
-                var curDay = GetCurrentDay();
-                if (curDay < 5)
+                if (finishedRecipes >= recipesToMake)
                 {
-                    SceneManager.LoadScene("EndOfTheDay");
-                }
-                if (curDay == 5)
-                {
-                    SceneManager.LoadScene("VictoryScreen");
+                    var curDay = GetCurrentDay();
+                    if (curDay < 5)
+                    {
+                        SceneManager.LoadScene("EndOfTheDay");
+                    }
+                    if (curDay == 5)
+                    {
+                        SceneManager.LoadScene("VictoryScreen");
+                    }
                 }
             }
         }

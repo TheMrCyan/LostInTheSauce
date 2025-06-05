@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 558e603c255bcd74b8cc6649e3de0fe6
+guid: dded35b45808cc443941b05bb7d8611b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8105643073103662199
-    second: 360_F_1110079949_9ZOcnz1QUOYhkv7DWJb2yXAaslC4pIHH-removebg-preview_0
+      213: 1425857464419186162
+    second: SM_T_TextBox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,10 +72,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,27 +96,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 360_F_1110079949_9ZOcnz1QUOYhkv7DWJb2yXAaslC4pIHH-removebg-preview_0
+      name: SM_T_TextBox_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 32
-        width: 261
-        height: 305
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 7, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77c0370fd670d7070800000000000000
-      internalID: 8105643073103662199
+      spriteID: 2f57b033fc9a9c310800000000000000
+      internalID: 1425857464419186162
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1eb0644c583275246b83a46f3775f883
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      360_F_1110079949_9ZOcnz1QUOYhkv7DWJb2yXAaslC4pIHH-removebg-preview_0: 8105643073103662199
+      SM_T_TextBox_0: 1425857464419186162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

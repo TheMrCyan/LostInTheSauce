@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/Levels/Day5.unity
     guid: 6de5a515d50c9764aa1ba10260bb1e02
+  - enabled: 1
+    path: Assets/Scenes/Game/T_Tutorial.unity
+    guid: 9cd3a4dae97c50b409404a43d778f922
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

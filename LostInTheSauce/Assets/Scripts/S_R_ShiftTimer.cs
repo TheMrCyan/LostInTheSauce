@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class S_R_ShiftTimer : MonoBehaviour
 {
+    public bool inTutorial = false;
+
     public static S_R_ShiftTimer Instance { get; private set; }
 
     [SerializeField][Tooltip("The Duration of the game")] public float shiftTime = 60.0f;
@@ -20,27 +22,28 @@ public class S_R_ShiftTimer : MonoBehaviour
 
     private void Update()
     {
-        if (hasStarted)
+        if (!inTutorial)
         {
-            if (timerEndedFlag) return;
-
-            shiftTime -= Time.deltaTime;
-            shiftTime = Mathf.Max(shiftTime, 0); // Prevents negative time
-
-            // Format time as MM:SS
-            int minutes = Mathf.FloorToInt(shiftTime / 60f);
-            int seconds = Mathf.FloorToInt(shiftTime % 60f);
-            string timer = string.Format("{0:00}:{1:00}", minutes, seconds);
-            timerText.text = timer;
-
-            if (shiftTime <= 0.0f)
+            if (hasStarted)
             {
-                timerEndedFlag = true;
-                TimerEnded();
+                if (timerEndedFlag) return;
+
+                shiftTime -= Time.deltaTime;
+                shiftTime = Mathf.Max(shiftTime, 0); // Prevents negative time
+
+                // Format time as MM:SS
+                int minutes = Mathf.FloorToInt(shiftTime / 60f);
+                int seconds = Mathf.FloorToInt(shiftTime % 60f);
+                string timer = string.Format("{0:00}:{1:00}", minutes, seconds);
+                timerText.text = timer;
+
+                if (shiftTime <= 0.0f)
+                {
+                    timerEndedFlag = true;
+                    TimerEnded();
+                }
             }
         }
-
-
     }
     public void UnderstoodButton()
     {

@@ -1,0 +1,44 @@
+(Press ENTER to continue)
+Welcome, new employee!
+Since our previous chef quit due to a stressful work environment, I'm here to guide you through your first day.
+Before you get started with your first day on the job, you're gonna have to know your way around the kitchen.
+Use WASD or the arrow keys to move.
+Good! If you wanna go faster, use SHIFT to sprint.
+You can see your stamina bar in the bottom left. Your stamina replenishes faster while standing still.
+Try picking up that tomato with SPACE.
+If you want to drop whatever you're holding, simply press SPACE again.
+The minimap in the bottom right shows all nearby ingredients, handy if you don't know where to look!
+Check out that counter! Just walk up to it and press SPACE to open the recipe menu.
+In this menu, you will see all the possible recipes you can make, and the ingredients you'll need to make them.
+These recipes will change each day, and you don't have to make them all to progress, so choose whatever you like!
+You can use the arrow buttons at the top of the menu to cycle through recipes, but for the sake of this tutorial you only have one recipe available.
+To properly prepare a recipe, you'll need to have ingredients prepared. That's why we have this table!
+Any ingredient you're holding will automatically be placed on the table when you touch it.
+Pick up the tomato you dropped earlier and bring it to the table.
+Good job! Now do the same for these other three ingredients.
+Oh no, that fish is raw! But for this recipe you'll need a cooked fish...
+No problem! Just press SPACE when standing next to the table, and click on the slot containing the raw fish to pick it back up.
+Now bring it over to this stove and press SPACE to start cooking!
+You can keep track of your stove in the top right corner.
+Once something is done cooking, you'll have a limited amount of time it burns. So be quick! But we won't let it burn in this tutorial.
+Once it's done, press SPACE again to take it off and bring it to the table.
+Not all ingredients are cookable. If you ever wanna know which ingredients you can cook, hold down TAB.
+Now that you have all the required ingredients, you can make your first recipe. Try it out!
+Great job! You're a real chef-in-the-making! But there's still some more I have to teach you.
+It's time to take out the trash!
+We never used that tomato, and it's taking up space on our table.
+Simply pick it up, carry it over to the trash can, and press SPACE.
+When you throw away an ingredient, it gets deleted and a new ingredient gets spawned somewhere else. Recycling!
+That number at the top is your shift timer. Don't worry, it's not counting down right now.
+Once you get started for real, you'll have limited time to finish your recipes.
+If you need to take a break, just press ESC to pause the game. But you better not slack off on the job!
+If you ever forget any controls, all you have to do is hold down CTRL! (Get it?)
+It seems you've got the basics down, which means you're well on your way to becoming a professional chef!
+The amount of recipes you must finish will increase every day, but you'll also have more recipes to choose from.
+You'll also get back a little bit of time for each ingredient you used when you finish a recipe.
+So don't be discouraged from tackling complex recipes!
+At the end of each day, you can unlock a handy skill to help you with gathering ingredients.
+You'll find out more about those skills soon enough. I won't spoil the surprise!
+That's all I can teach you for now.
+Good luck!
+(Press ENTER to start Day 1)

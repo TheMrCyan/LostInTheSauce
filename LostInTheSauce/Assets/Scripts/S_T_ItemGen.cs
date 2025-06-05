@@ -44,7 +44,14 @@ public class S_T_ItemGen : MonoBehaviour
                 // Throw item away
                 if (S_T_PlayerMovement.Instance.touchingTrash)
                 {
-                    RandomizeLocation();
+                    if (!S_T_PrepTable.Instance.isTutorial)
+                    {
+                        RandomizeLocation();
+                    }
+                    else
+                    {
+                        Destroy(this.gameObject);
+                    }
                 }
                 // Stove interaction
                 else if (S_T_Stove.Instance.touchingPlayer)
@@ -62,6 +69,7 @@ public class S_T_ItemGen : MonoBehaviour
 
         visuals[0].sprite = S_T_ItemManager.Instance.ingredients[Random.Range(0, lastRawIngredient + 1)];
         visuals[1].sprite = visuals[0].sprite; // Minimap
+
         transform.position = S_T_MazeGenerator.Instance.validItemSpaces[Random.Range(0, S_T_MazeGenerator.Instance.validItemSpaces.Count)] * S_T_MazeGenerator.Instance.scale;
         // Only spawn outside of player view
         if (Vector2.Distance(transform.position, S_T_PlayerMovement.Instance.transform.position) < 22f)

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class S_T_StoveTimer : MonoBehaviour
 {
+    public bool inTutorial = false;
     private bool useGraceTime;
     private float time;
     public TMP_Text timerValue;
@@ -26,7 +27,10 @@ public class S_T_StoveTimer : MonoBehaviour
             timer.SetActive(true);
             if (useGraceTime)
             {
-                time = max - S_T_Stove.Instance.graceTimer;
+                if (!inTutorial)
+                {
+                    time = max - S_T_Stove.Instance.graceTimer;
+                }
             }
             else
             {

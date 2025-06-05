@@ -5,6 +5,7 @@ public class S_T_Stove : MonoBehaviour
     public static S_T_Stove Instance { get; private set; }
 
     [System.NonSerialized] public bool touchingPlayer;
+    public bool inTutorial = false;
     public bool cooked;
     private int ingredientId;
     public float cookingTime;
@@ -96,10 +97,13 @@ public class S_T_Stove : MonoBehaviour
                     if (graceTimer > graceTime)
                     {
                         // Burn food
-                        heldItem.sprite = null;
-                        cooked = false;
-                        graceTimer = 0f;
-                        cookingTime = 0f;
+                        if (!inTutorial)
+                        {
+                            heldItem.sprite = null;
+                            cooked = false;
+                            graceTimer = 0f;
+                            cookingTime = 0f;
+                        }
                     }
                 }
             }
