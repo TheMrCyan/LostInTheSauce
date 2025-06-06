@@ -76,12 +76,12 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill1();
             }
             // ===================================== SKILL 2 ======================================
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.X))
             {
                 TryUseSkill2();
             }
             // ===================================== SKILL 3 ======================================
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 TryUseSkill3(5f);
             }
@@ -135,7 +135,9 @@ public class S_R_SkillManager : MonoBehaviour
     [Tooltip("Spawn one random item")] //teleport forward 5 units
     private void Skill3(float range)
     {
-        OldPos = m_Player.transform.position;
+        if (!S_T_PlayerMovement.Instance.isMoving)
+        {
+            OldPos = m_Player.transform.position;
             NewPos = OldPos + S_T_PlayerMovement.lastMoveDirection * range;
             hit = Physics2D.OverlapPoint(NewPos);
             if (!(NewPos.x < 0 || NewPos.y < 0 || NewPos.x > width || NewPos.y > height))
@@ -150,6 +152,7 @@ public class S_R_SkillManager : MonoBehaviour
                 {
                     Skill3(range + 0.1f);
                 }
+            }
         }
     }
 

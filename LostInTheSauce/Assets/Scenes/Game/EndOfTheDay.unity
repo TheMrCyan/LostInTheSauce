@@ -313,6 +313,8 @@ MonoBehaviour:
 
     Instantly cook the ingredient you''re holding
 
+
+
     Cooldown:
     60 Seconds'
   m_isRightToLeft: 0
@@ -888,7 +890,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Speed Boost -
 
-    Doubles your speed for a short duration
+    Gives you a short burst of movement speed
+
+
 
 
     Cooldown:
@@ -1383,10 +1387,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: '-  Blink -
 
-    Teleport through walls in the last direction you moved
+    Teleport through walls in the last direction you moved.
+    Only works while standing still
 
-    Cooldown:
-    15 Seconds'
+
+    Cooldown: 15 Seconds'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1799,6 +1804,8 @@ MonoBehaviour:
   m_text: '-  Spawn Item -
 
     Spawns one random ingredient at your position
+
+
 
     Cooldown:
     30 Seconds'
