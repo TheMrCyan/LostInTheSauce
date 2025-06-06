@@ -11,12 +11,31 @@ public class S_R_NextDay : MonoBehaviour
     [SerializeField] private GameObject m_firstButtons;
     [SerializeField] private GameObject m_secondButtons;
     [SerializeField] private GameObject skill1, skill2, skill3, skill4;
+    static private bool m_skill1unlocked, m_skill2unlocked, m_skill3unlocked, m_skill4unlocked;
 
     private void Awake()
     {
         m_firstButtons.SetActive(true);
         m_secondButtons.SetActive(false);
+        if (m_skill1unlocked )
+        {
+            Destroy(skill1);
+        }
+        if (m_skill2unlocked )
+        {
+            Destroy(skill2);
+        }
+        if (m_skill3unlocked )
+        {
+            Destroy(skill3);
+        }
+        if (m_skill4unlocked )
+        {
+            Destroy(skill4);
+        }
     }
+
+
     public void NextLevel()
     {
         if (m_DayCount <= m_TotalDays)
@@ -62,7 +81,7 @@ public class S_R_NextDay : MonoBehaviour
         string sceneName = "Day" + m_DayCount;
         SceneManager.LoadScene(sceneName);
         m_DayCount++;
-
+        m_skill1unlocked = true;
         Destroy(skill1);
 
     }
@@ -74,7 +93,7 @@ public class S_R_NextDay : MonoBehaviour
         string sceneName = "Day" + m_DayCount;
         SceneManager.LoadScene(sceneName);
         m_DayCount++;
-
+        m_skill2unlocked = true;
         Destroy(skill2);
     }
     public void Skill3Unlock()
@@ -85,7 +104,7 @@ public class S_R_NextDay : MonoBehaviour
         string sceneName = "Day" + m_DayCount;
         SceneManager.LoadScene(sceneName);
         m_DayCount++;
-
+        m_skill3unlocked = true;
         Destroy(skill3);
     }
     public void Skill4Unlock()
@@ -96,7 +115,7 @@ public class S_R_NextDay : MonoBehaviour
         string sceneName = "Day" + m_DayCount;
         SceneManager.LoadScene(sceneName);
         m_DayCount++;
-
+        m_skill4unlocked = true;
         Destroy(skill4);
     }
 }
