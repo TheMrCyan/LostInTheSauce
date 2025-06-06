@@ -71,12 +71,12 @@ public class S_R_SkillManager : MonoBehaviour
         if (!S_T_PauseMenu.isPaused)
         {
             // ===================================== SKILL 1 ======================================
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
             {
                 TryUseSkill1();
             }
             // ===================================== SKILL 2 ======================================
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 TryUseSkill2();
             }
@@ -86,7 +86,7 @@ public class S_R_SkillManager : MonoBehaviour
                 TryUseSkill3(5f);
             }
             // ===================================== SKILL 4 ======================================
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 TryUseSkill4();
             }
